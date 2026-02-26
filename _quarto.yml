@@ -6,6 +6,8 @@ execute:
 
 format:
   html:
+    df-print: paged
+    code-fold: true
     toc: true
     comments:
       hypothesis: true
