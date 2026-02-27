@@ -21,41 +21,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -240,26 +205,6 @@ P(y_i = 1) = logit^{-1}(\beta_0 + \beta_{d}D_i + \beta X_i + \gamma_p P_i + \eta
 \tag{1.1}\]</span></span></p>
 <p>Avec <span class="math inline">\(P(y_i = 1)\)</span> la probabilité de l’individu <span class="math inline">\(i\)</span> d’être contre l’augmentation de la franchise minimale, <span class="math inline">\(D_i\)</span> le niveau de décile auquel appartient l’individu <span class="math inline">\(i\)</span>, <span class="math inline">\(X_i\)</span> un vecteur de caractéristiques individuelles socio-démographique (âge, genre, langue), <span class="math inline">\(P_i\)</span> un vecteur de variable sur la probabilité de voter pour certains partis politiques suisses (Le Centre, le Parti Socialiste, les Verts et les Verts Libéraux) sur une échelle de 0 à 10, et <span class="math inline">\(O_i\)</span> l’opinion sur une série d’enjeux comme l’intégration européenne, le salaire minimum ou encore les dépenses sociales. <span class="math inline">\(\epsilon_i\)</span> est le terme d’erreur. De manière surprenante, la variable pour les groupes socio-économiques ESEG n’a pas été retenue par la procédure de sélection, ce qui implique que la classe sociale telle que mesurée par l’indice ESEG ne semble pas jouer un rôle déterminant par rapport au niveau de revenu et aux autres variables de contrôle Comme le schéma de classe ESEG est une variable importante pour notre analyse, nous considérons quand même les résultats d’une régression simple de nos deux variables dépendantes sur les catégories socio-professionnelles ESEG (résultats disponibles dans l’annexe). Encore plus étonnant, la variable contrôlant pour les cantons n’a pas non plus été retenue, ce qui suggère que l’effet d’appartenance à un canton est négligeable. Le coefficient de corrélation interclasse (ICC) calculé à partir d’un modèle multiniveau avec les cantons en tant que niveau confirme que les variations entre cantons sont faibles (voir annexe). Le modèle pour le vote en faveur de l’initiative pour l’allègement des primes prend une forme similaire à (1), avec quelques différences au niveau des variables retenues car certaines d’entre elles n’étaient pas disponible dans la quatrième vague. Comme pour le premier modèle, le schéma de classe ESEG n’a pas été retenu par la procédure de sélection, ni le canton de résidence.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>swissvotes <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">"data/swissvotes.csv"</span>, </span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">delim =</span> <span class="st">";"</span>, <span class="at">escape_double =</span> <span class="cn">FALSE</span>, <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">d1e3 =</span> <span class="fu">col_double</span>()), </span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">trim_ws =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>swissvotes <span class="sc">%&gt;%</span> </span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(d1e3 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"10.24"</span>, <span class="st">"10.11"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(datum, titel_kurz_f, annahme, <span class="st">`</span><span class="at">volkja-proz</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">Date =</span> <span class="st">"datum"</span>,</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">Votation =</span> <span class="st">"titel_kurz_f"</span>,</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Résultat</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"annahme"</span>,</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">% Oui</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"volkja-proz"</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div id="tbl-votations" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-votations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -267,23 +212,23 @@ Table&nbsp;1.1: Votations en lien avec le système de santé en Suisse. Source: 
 </figcaption>
 <div aria-describedby="tbl-votations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="kiqxniffex" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#kiqxniffex table {
+<div id="yriilvqyqj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#yriilvqyqj table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#kiqxniffex thead, #kiqxniffex tbody, #kiqxniffex tfoot, #kiqxniffex tr, #kiqxniffex td, #kiqxniffex th {
+#yriilvqyqj thead, #yriilvqyqj tbody, #yriilvqyqj tfoot, #yriilvqyqj tr, #yriilvqyqj td, #yriilvqyqj th {
   border-style: none;
 }
 
-#kiqxniffex p {
+#yriilvqyqj p {
   margin: 0;
   padding: 0;
 }
 
-#kiqxniffex .gt_table {
+#yriilvqyqj .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -309,12 +254,12 @@ Table&nbsp;1.1: Votations en lien avec le système de santé en Suisse. Source: 
   border-left-color: #D3D3D3;
 }
 
-#kiqxniffex .gt_caption {
+#yriilvqyqj .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#kiqxniffex .gt_title {
+#yriilvqyqj .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -326,7 +271,7 @@ Table&nbsp;1.1: Votations en lien avec le système de santé en Suisse. Source: 
   border-bottom-width: 0;
 }
 
-#kiqxniffex .gt_subtitle {
+#yriilvqyqj .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -338,7 +283,7 @@ Table&nbsp;1.1: Votations en lien avec le système de santé en Suisse. Source: 
   border-top-width: 0;
 }
 
-#kiqxniffex .gt_heading {
+#yriilvqyqj .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -350,13 +295,13 @@ Table&nbsp;1.1: Votations en lien avec le système de santé en Suisse. Source: 
   border-right-color: #D3D3D3;
 }
 
-#kiqxniffex .gt_bottom_border {
+#yriilvqyqj .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#kiqxniffex .gt_col_headings {
+#yriilvqyqj .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -371,7 +316,7 @@ Table&nbsp;1.1: Votations en lien avec le système de santé en Suisse. Source: 
   border-right-color: #D3D3D3;
 }
 
-#kiqxniffex .gt_col_heading {
+#yriilvqyqj .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -391,7 +336,7 @@ Table&nbsp;1.1: Votations en lien avec le système de santé en Suisse. Source: 
   overflow-x: hidden;
 }
 
-#kiqxniffex .gt_column_spanner_outer {
+#yriilvqyqj .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -403,15 +348,15 @@ Table&nbsp;1.1: Votations en lien avec le système de santé en Suisse. Source: 
   padding-right: 4px;
 }
 
-#kiqxniffex .gt_column_spanner_outer:first-child {
+#yriilvqyqj .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#kiqxniffex .gt_column_spanner_outer:last-child {
+#yriilvqyqj .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#kiqxniffex .gt_column_spanner {
+#yriilvqyqj .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -423,11 +368,11 @@ Table&nbsp;1.1: Votations en lien avec le système de santé en Suisse. Source: 
   width: 100%;
 }
 
-#kiqxniffex .gt_spanner_row {
+#yriilvqyqj .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#kiqxniffex .gt_group_heading {
+#yriilvqyqj .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -453,7 +398,7 @@ Table&nbsp;1.1: Votations en lien avec le système de santé en Suisse. Source: 
   text-align: left;
 }
 
-#kiqxniffex .gt_empty_group_heading {
+#yriilvqyqj .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -468,15 +413,15 @@ Table&nbsp;1.1: Votations en lien avec le système de santé en Suisse. Source: 
   vertical-align: middle;
 }
 
-#kiqxniffex .gt_from_md > :first-child {
+#yriilvqyqj .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#kiqxniffex .gt_from_md > :last-child {
+#yriilvqyqj .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#kiqxniffex .gt_row {
+#yriilvqyqj .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -495,7 +440,7 @@ Table&nbsp;1.1: Votations en lien avec le système de santé en Suisse. Source: 
   overflow-x: hidden;
 }
 
-#kiqxniffex .gt_stub {
+#yriilvqyqj .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -508,7 +453,7 @@ Table&nbsp;1.1: Votations en lien avec le système de santé en Suisse. Source: 
   padding-right: 5px;
 }
 
-#kiqxniffex .gt_stub_row_group {
+#yriilvqyqj .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -522,15 +467,15 @@ Table&nbsp;1.1: Votations en lien avec le système de santé en Suisse. Source: 
   vertical-align: top;
 }
 
-#kiqxniffex .gt_row_group_first td {
+#yriilvqyqj .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#kiqxniffex .gt_row_group_first th {
+#yriilvqyqj .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#kiqxniffex .gt_summary_row {
+#yriilvqyqj .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -540,16 +485,16 @@ Table&nbsp;1.1: Votations en lien avec le système de santé en Suisse. Source: 
   padding-right: 5px;
 }
 
-#kiqxniffex .gt_first_summary_row {
+#yriilvqyqj .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#kiqxniffex .gt_first_summary_row.thick {
+#yriilvqyqj .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#kiqxniffex .gt_last_summary_row {
+#yriilvqyqj .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -559,7 +504,7 @@ Table&nbsp;1.1: Votations en lien avec le système de santé en Suisse. Source: 
   border-bottom-color: #D3D3D3;
 }
 
-#kiqxniffex .gt_grand_summary_row {
+#yriilvqyqj .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -569,7 +514,7 @@ Table&nbsp;1.1: Votations en lien avec le système de santé en Suisse. Source: 
   padding-right: 5px;
 }
 
-#kiqxniffex .gt_first_grand_summary_row {
+#yriilvqyqj .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -579,7 +524,7 @@ Table&nbsp;1.1: Votations en lien avec le système de santé en Suisse. Source: 
   border-top-color: #D3D3D3;
 }
 
-#kiqxniffex .gt_last_grand_summary_row_top {
+#yriilvqyqj .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -589,11 +534,11 @@ Table&nbsp;1.1: Votations en lien avec le système de santé en Suisse. Source: 
   border-bottom-color: #D3D3D3;
 }
 
-#kiqxniffex .gt_striped {
+#yriilvqyqj .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#kiqxniffex .gt_table_body {
+#yriilvqyqj .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -602,7 +547,7 @@ Table&nbsp;1.1: Votations en lien avec le système de santé en Suisse. Source: 
   border-bottom-color: #D3D3D3;
 }
 
-#kiqxniffex .gt_footnotes {
+#yriilvqyqj .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -616,7 +561,7 @@ Table&nbsp;1.1: Votations en lien avec le système de santé en Suisse. Source: 
   border-right-color: #D3D3D3;
 }
 
-#kiqxniffex .gt_footnote {
+#yriilvqyqj .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -625,7 +570,7 @@ Table&nbsp;1.1: Votations en lien avec le système de santé en Suisse. Source: 
   padding-right: 5px;
 }
 
-#kiqxniffex .gt_sourcenotes {
+#yriilvqyqj .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -639,7 +584,7 @@ Table&nbsp;1.1: Votations en lien avec le système de santé en Suisse. Source: 
   border-right-color: #D3D3D3;
 }
 
-#kiqxniffex .gt_sourcenote {
+#yriilvqyqj .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -647,72 +592,72 @@ Table&nbsp;1.1: Votations en lien avec le système de santé en Suisse. Source: 
   padding-right: 5px;
 }
 
-#kiqxniffex .gt_left {
+#yriilvqyqj .gt_left {
   text-align: left;
 }
 
-#kiqxniffex .gt_center {
+#yriilvqyqj .gt_center {
   text-align: center;
 }
 
-#kiqxniffex .gt_right {
+#yriilvqyqj .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#kiqxniffex .gt_font_normal {
+#yriilvqyqj .gt_font_normal {
   font-weight: normal;
 }
 
-#kiqxniffex .gt_font_bold {
+#yriilvqyqj .gt_font_bold {
   font-weight: bold;
 }
 
-#kiqxniffex .gt_font_italic {
+#yriilvqyqj .gt_font_italic {
   font-style: italic;
 }
 
-#kiqxniffex .gt_super {
+#yriilvqyqj .gt_super {
   font-size: 65%;
 }
 
-#kiqxniffex .gt_footnote_marks {
+#yriilvqyqj .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#kiqxniffex .gt_asterisk {
+#yriilvqyqj .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#kiqxniffex .gt_indent_1 {
+#yriilvqyqj .gt_indent_1 {
   text-indent: 5px;
 }
 
-#kiqxniffex .gt_indent_2 {
+#yriilvqyqj .gt_indent_2 {
   text-indent: 10px;
 }
 
-#kiqxniffex .gt_indent_3 {
+#yriilvqyqj .gt_indent_3 {
   text-indent: 15px;
 }
 
-#kiqxniffex .gt_indent_4 {
+#yriilvqyqj .gt_indent_4 {
   text-indent: 20px;
 }
 
-#kiqxniffex .gt_indent_5 {
+#yriilvqyqj .gt_indent_5 {
   text-indent: 25px;
 }
 
-#kiqxniffex .katex-display {
+#yriilvqyqj .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#kiqxniffex div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#yriilvqyqj div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -919,328 +864,13 @@ Table&nbsp;1.1: Votations en lien avec le système de santé en Suisse. Source: 
 </section>
 <section id="matériel-supplémentaire" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="matériel-supplémentaire"><span class="header-section-number">1.2</span> Matériel supplémentaire</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(marginaleffects)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjlabelled)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DIGCLASS)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># function to recode party satisfaction variables to put "don't know" as middle value</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>recode_party_satisfaction <span class="ot">=</span> <span class="cf">function</span>(var){</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  new_var <span class="ot">=</span> <span class="fu">case_when</span>(</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    var <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    var <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="dv">2</span>, </span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    var <span class="sc">==</span> <span class="dv">8</span> <span class="sc">~</span> <span class="dv">3</span>, </span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    var <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="dv">4</span>,</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    var <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="dv">5</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>selects2023panelW4 <span class="ot">&lt;-</span>  <span class="fu">read_sav</span>(<span class="st">"data/selects2023panelW4/data/2626_Selects2023_Panel_Data_v2.0.sav"</span>)</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>selects2023panelW4<span class="sc">$</span>isco08 <span class="ot">=</span> selects2023panelW4<span class="sc">$</span>W1_4_f21601_2dig<span class="sc">*</span><span class="dv">100</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>selects2023panelW4_2 <span class="ot">=</span> selects2023panelW4  <span class="sc">%&gt;%</span> </span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">vote_choice =</span> <span class="st">"W4_f10851main6"</span>,</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">feelings_udc =</span> <span class="st">'W4_f14177a'</span>,</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">feelings_ps =</span> <span class="st">'W4_f14177b'</span>,</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">feelings_centre =</span> <span class="st">'W4_f14177c'</span>,</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">feelings_plr =</span> <span class="st">'W4_f14177d'</span>,</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">feelings_verts =</span> <span class="st">'W4_f14177e'</span>,</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">feelings_vertslib =</span> <span class="st">'W4_f14177f'</span>,</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">op_gender_equality =</span> <span class="st">'W4_f15475'</span>,</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">op_state_intervention =</span> <span class="st">'W4_f15435'</span>, <span class="co"># 5 = for more competition</span></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">op_2many_worries_abt_env_vs_prices =</span> <span class="st">'W4_f15478'</span>,</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">op_min_wage =</span> <span class="st">'W4_f15815'</span>, <span class="co"># 4 = strongly in favor</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">op_incr_retirement_age =</span> <span class="st">'W4_f15811'</span>,</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">op_foreigners_votingrights =</span> <span class="st">'W4_f15816'</span>,</span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">op_rights_samesex_couples =</span> <span class="st">'W4_f15817'</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">income =</span> <span class="fu">case_when</span>(</span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">1</span>  <span class="sc">~</span> (<span class="dv">0</span><span class="sc">+</span><span class="dv">2000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">2</span>  <span class="sc">~</span> (<span class="dv">2001</span><span class="sc">+</span><span class="dv">3000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">3</span>  <span class="sc">~</span> (<span class="dv">3001</span><span class="sc">+</span><span class="dv">4000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">4</span>  <span class="sc">~</span> (<span class="dv">4001</span><span class="sc">+</span><span class="dv">5000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">5</span>  <span class="sc">~</span> (<span class="dv">5001</span><span class="sc">+</span><span class="dv">6000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">6</span>  <span class="sc">~</span> (<span class="dv">6001</span><span class="sc">+</span><span class="dv">7000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">7</span>  <span class="sc">~</span> (<span class="dv">7001</span><span class="sc">+</span><span class="dv">8000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">8</span>  <span class="sc">~</span> (<span class="dv">8001</span><span class="sc">+</span><span class="dv">9000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">9</span>  <span class="sc">~</span> (<span class="dv">9001</span><span class="sc">+</span><span class="dv">10000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">10</span> <span class="sc">~</span> (<span class="dv">10001</span><span class="sc">+</span><span class="dv">11000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">11</span> <span class="sc">~</span> (<span class="dv">11001</span><span class="sc">+</span><span class="dv">12000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">12</span> <span class="sc">~</span> (<span class="dv">12001</span><span class="sc">+</span><span class="dv">13000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">13</span> <span class="sc">~</span> (<span class="dv">13001</span><span class="sc">+</span><span class="dv">14000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">14</span> <span class="sc">~</span> (<span class="dv">14001</span><span class="sc">+</span><span class="dv">15000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">15</span> <span class="sc">~</span> (<span class="dv">15001</span><span class="sc">+</span><span class="dv">16000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">16</span> <span class="sc">~</span> (<span class="dv">16001</span><span class="sc">+</span><span class="dv">17000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">17</span> <span class="sc">~</span> (<span class="dv">17001</span><span class="sc">+</span><span class="dv">18000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">18</span> <span class="sc">~</span> (<span class="dv">18001</span><span class="sc">+</span><span class="dv">19000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">19</span> <span class="sc">~</span> (<span class="dv">19001</span><span class="sc">+</span><span class="dv">20000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">20</span> <span class="sc">~</span> <span class="dv">20001</span>         </span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>),</span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a><span class="at">language =</span> <span class="fu">factor</span>(<span class="fu">as_label</span>(W4_langint)),</span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a><span class="at">gender =</span> <span class="fu">factor</span>(<span class="fu">as_label</span>(W4_sex)),</span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a><span class="at">rec_satisf_plr =</span> <span class="fu">recode_party_satisfaction</span>(W4_f13743a),</span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="at">rec_satisf_centre =</span> <span class="fu">recode_party_satisfaction</span>(W4_f13743b),</span>
-<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a><span class="at">rec_satisf_ps =</span> <span class="fu">recode_party_satisfaction</span>(W4_f13743c),</span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a><span class="at">rec_satisf_udc =</span> <span class="fu">recode_party_satisfaction</span>(W4_f13743d),</span>
-<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a><span class="at">rec_satisf_verts =</span> <span class="fu">recode_party_satisfaction</span>(W4_f13743e),</span>
-<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a><span class="at">income_decile =</span> <span class="fu">ntile</span>(income, <span class="at">n =</span> <span class="dv">10</span>),</span>
-<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a><span class="at">income_adjusted =</span> income<span class="sc">/</span><span class="fu">sqrt</span>(W4_f20500), <span class="co"># W4_f20500 = household size, including R</span></span>
-<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a><span class="at">income_adj_decile =</span> <span class="fu">ntile</span>(income_adjusted, <span class="at">n =</span> <span class="dv">10</span>),</span>
-<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a><span class="at">lr =</span> <span class="fu">if_else</span>(W4_f15200 <span class="sc">==</span> <span class="dv">98</span> <span class="sc">|</span> <span class="fu">is.na</span>(W4_f15200), <span class="cn">NA</span>, W4_f15200),</span>
-<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a><span class="at">education_ISCED =</span> <span class="fu">case_when</span>(</span>
-<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>  W4_f21310rec <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>) <span class="sc">~</span> <span class="dv">1</span>,  <span class="co"># No education, Primary = ISCED 1</span></span>
-<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>  W4_f21310rec <span class="sc">==</span> <span class="dv">3</span>        <span class="sc">~</span> <span class="dv">2</span>,  <span class="co"># Secondary school = ISCED 2</span></span>
-<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>  W4_f21310rec <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">5</span>) <span class="sc">~</span> <span class="dv">3</span>,  <span class="co"># Basic vocational training, apprenticeship = ISC4D 3</span></span>
-<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>  W4_f21310rec <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>) <span class="sc">~</span> <span class="dv">4</span>, <span class="co"># Upper secondary specialized, tra4e, vocational = ISCED 4 </span></span>
-<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>  W4_f21310rec <span class="sc">==</span> <span class="dv">9</span> <span class="sc">~</span> <span class="dv">5</span>,  <span class="co"># Matu = ISCED 5</span></span>
-<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>  W4_f21310rec <span class="sc">==</span> <span class="dv">10</span> <span class="sc">~</span> <span class="dv">5</span>,  <span class="co"># Higher vocational education with federal dip4oma = ISCED 5</span></span>
-<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>  W4_f21310rec <span class="sc">==</span> <span class="dv">11</span> <span class="sc">~</span> <span class="dv">6</span>,  <span class="co"># College of higher education = ISCED 6</span></span>
-<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>  W4_f21310rec <span class="sc">==</span> <span class="dv">12</span> <span class="sc">~</span> <span class="dv">6</span>,  <span class="co"># Uni of applied sciences = ISCED 6 (Ba4helor level)</span></span>
-<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>  W4_f21310rec <span class="sc">==</span> <span class="dv">13</span> <span class="sc">~</span> <span class="dv">7</span>,  <span class="co"># University / Federal Institute of Tec4nology = ISCED 7 (Master)</span></span>
-<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>  W4_f21310rec <span class="sc">==</span> <span class="dv">14</span> <span class="sc">~</span> <span class="cn">NA</span>   <span class="co"># other</span></span>
-<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>),</span>
-<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a><span class="at">public_sector =</span> <span class="fu">if_else</span>(W1_4_f21700 <span class="sc">==</span> <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
-<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a><span class="at">canton =</span> <span class="fu">as_character</span>(W4_canton_sample),</span>
-<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a><span class="at">langue =</span> <span class="fu">relevel</span>(<span class="fu">factor</span>(<span class="fu">as_character</span>(W4_langint)), <span class="at">ref =</span> <span class="st">"German"</span>),</span>
-<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a><span class="co">#isco08_4d = isco08_swap(W1_ISCO08prof_2dig, from = 2, to = 3),</span></span>
-<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a><span class="at">main_activity =</span> <span class="fu">case_when</span>(</span>
-<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>  <span class="co"># comme il s'agit de la 4eme vague, la question si la situation de travail a changé doit etre prise en compte, si W4_f21300 == 0, la situation n'a pas changé depuis vague 1 (W1)</span></span>
-<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>  W4_f21300 <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> W1_f21400 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">7</span>) <span class="sc">~</span> <span class="dv">1</span>, <span class="co"># working</span></span>
-<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>  W4_f21300 <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> W1_f21400 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">3</span>) <span class="sc">~</span> <span class="dv">2</span>, <span class="co"># in training/education</span></span>
-<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>  W4_f21300 <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> W1_f21400 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">6</span>) <span class="sc">~</span> <span class="dv">3</span>, <span class="co"># disability</span></span>
-<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>  W4_f21300 <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> W1_f21400 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">8</span>) <span class="sc">~</span> <span class="dv">4</span>, <span class="co"># no paid work</span></span>
-<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>  W4_f21300 <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> W1_f21400 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">5</span>) <span class="sc">~</span> <span class="dv">5</span>, <span class="co"># retired</span></span>
-<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a>  W4_f21300 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> W4_f21400 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">7</span>) <span class="sc">~</span> <span class="dv">1</span>, <span class="co"># working</span></span>
-<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a>  W4_f21300 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> W4_f21400 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">3</span>) <span class="sc">~</span> <span class="dv">2</span>, <span class="co"># in training/education</span></span>
-<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>  W4_f21300 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> W4_f21400 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">6</span>) <span class="sc">~</span> <span class="dv">3</span>, <span class="co"># disability</span></span>
-<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a>  W4_f21300 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> W4_f21400 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">8</span>) <span class="sc">~</span> <span class="dv">4</span>, <span class="co"># no paid work</span></span>
-<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>  W4_f21300 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> W4_f21400 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">5</span>) <span class="sc">~</span> <span class="dv">5</span> <span class="co"># retired</span></span>
-<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>),</span>
-<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a><span class="co"># Prise en compte du changement depuis W1, comme pour main_activity</span></span>
-<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a><span class="at">work_status =</span> <span class="fu">case_when</span>(</span>
-<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a>  W4_f21300 <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> W1_f21500 <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="dv">1</span>, <span class="co"># self-employed</span></span>
-<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a>  W4_f21300 <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> W1_f21500 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="sc">~</span> <span class="dv">0</span>, <span class="co"># employee</span></span>
-<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a>  W4_f21300 <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> <span class="fu">is.na</span>(W1_f21500) <span class="sc">~</span> <span class="dv">2</span>, <span class="co"># not employed</span></span>
-<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a>  W4_f21300 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> W4_f21500 <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="dv">1</span>, <span class="co"># self-employed</span></span>
-<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a>  W4_f21300 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> W4_f21500 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="sc">~</span> <span class="dv">0</span>, <span class="co"># employee</span></span>
-<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a>  W4_f21300 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> <span class="fu">is.na</span>(W4_f21500) <span class="sc">~</span> <span class="dv">2</span> <span class="co"># not employed</span></span>
-<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a>),</span>
-<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a><span class="at">main_activity2 =</span> <span class="fu">case_when</span>(</span>
-<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a>  W1_4_f21400 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">7</span>) <span class="sc">~</span> <span class="dv">1</span>, <span class="co"># working</span></span>
-<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a>  W1_4_f21400 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">3</span>) <span class="sc">~</span> <span class="dv">2</span>, <span class="co"># in training/education</span></span>
-<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a>  W1_4_f21400 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">6</span>) <span class="sc">~</span> <span class="dv">3</span>, <span class="co"># disability</span></span>
-<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a>  W1_4_f21400 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">8</span>) <span class="sc">~</span> <span class="dv">4</span>, <span class="co"># no paid work</span></span>
-<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a>  W1_4_f21400 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">5</span>) <span class="sc">~</span> <span class="dv">5</span> <span class="co"># retired</span></span>
-<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a>),</span>
-<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a><span class="at">work_status2 =</span> <span class="fu">case_when</span>(</span>
-<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a>  W1_4_f21500 <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="dv">1</span>, <span class="co"># self-employed</span></span>
-<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a>  W1_4_f21500 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="sc">~</span> <span class="dv">0</span>, <span class="co"># employee</span></span>
-<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a>  <span class="fu">is.na</span>(W1_4_f21500) <span class="sc">~</span> <span class="dv">2</span> <span class="co"># not employed</span></span>
-<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a>),</span>
-<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a><span class="at">eseg =</span> <span class="fu">isco08_to_eseg</span>(isco08, <span class="at">work_status =</span> work_status2, <span class="at">main_activity =</span> main_activity2, <span class="at">age =</span> W4_age, <span class="at">to_factor =</span> <span class="cn">FALSE</span>, <span class="at">type =</span> <span class="st">"two-digit"</span>, <span class="at">label =</span> <span class="cn">FALSE</span>),</span>
-<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a><span class="at">yes_premium_initiative =</span> <span class="fu">if_else</span>(W4_f10771a <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">1</span>,</span>
-<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a>                                 <span class="fu">if_else</span>(<span class="fu">is.na</span>(W4_f10771a), <span class="cn">NA</span>, <span class="dv">0</span>)),</span>
-<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a><span class="at">yes_biodiversity_initiative =</span>  <span class="fu">if_else</span>(W4_f10751a <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">1</span>,</span>
-<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a>                                 <span class="fu">if_else</span>(<span class="fu">is.na</span>(W4_f10751a), <span class="cn">NA</span>, <span class="dv">0</span>)),</span>
-<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a><span class="at">yes_pension_reform =</span> <span class="fu">if_else</span>(W4_f10751b <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">1</span>,</span>
-<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a>                                 <span class="fu">if_else</span>(<span class="fu">is.na</span>(W4_f10751b), <span class="cn">NA</span>, <span class="dv">0</span>)),</span>
-<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a><span class="at">yes_13th_pension_payment =</span> <span class="fu">if_else</span>(W4_f10791 <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">1</span>,</span>
-<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a>                                 <span class="fu">if_else</span>(<span class="fu">is.na</span>(W4_f10791), <span class="cn">NA</span>, <span class="dv">0</span>)),</span>
-<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>! ISCO variable is not a character. Beware that numeric ISCO variables possibly contain lost data. See https://cimentadaj.github.io/DIGCLASS/articles/repairing_isco_input.html for more details. Converting to a character vector.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>ℹ ISCO variable has occupations with digits less than 4. Converting to 4 digits.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>• Converted `200` to `0200`</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>• Converted `300` to `0300`</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>• Converted `100` to `0100`</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>selects2023panelW4_2 <span class="ot">=</span> selects2023panelW4_2 <span class="sc">%&gt;%</span> </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">eseg9 =</span> <span class="fu">case_when</span>(</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">1.1</span>, <span class="fl">1.2</span>, <span class="fl">1.3</span>, <span class="fl">1.4</span>) <span class="sc">~</span> <span class="st">"Managers"</span>,</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">2.1</span>, <span class="fl">2.2</span>, <span class="fl">2.3</span>, <span class="fl">2.4</span>, <span class="fl">2.5</span>) <span class="sc">~</span> <span class="st">"Professionals"</span>,</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">3.1</span>, <span class="fl">3.2</span>, <span class="fl">3.3</span>, <span class="fl">3.4</span>, <span class="fl">3.5</span>) <span class="sc">~</span> <span class="st">"Technicians and associated professionals employees"</span>,</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">4.1</span>, <span class="fl">4.2</span>, <span class="fl">4.3</span>) <span class="sc">~</span> <span class="st">"small entrepreneurs"</span>,</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">5.1</span>, <span class="fl">5.2</span>, <span class="fl">5.3</span>, <span class="fl">5.4</span>) <span class="sc">~</span> <span class="st">"Clerks and skilled service employees"</span>,</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">6.1</span>, <span class="fl">6.2</span>, <span class="fl">6.3</span>, <span class="fl">6.4</span>, <span class="fl">6.5</span>) <span class="sc">~</span> <span class="st">"Skilled industrial employees"</span>,</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">7.1</span>, <span class="fl">7.2</span>, <span class="fl">7.3</span>, <span class="fl">7.4</span>) <span class="sc">~</span> <span class="st">"Lower status employees"</span>,</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">8.8</span>) <span class="sc">~</span> <span class="st">"Retired"</span>,</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">9.1</span>) <span class="sc">~</span> <span class="st">"Student"</span>,</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">9.2</span>, <span class="fl">9.3</span>) <span class="sc">~</span> <span class="st">"Unemployed or disabled"</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>     ),</span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>     </span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>     <span class="at">eseg10 =</span> <span class="fu">case_when</span>(</span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">1.1</span>, <span class="fl">1.2</span>, <span class="fl">1.3</span>, <span class="fl">1.4</span>) <span class="sc">~</span> <span class="st">"Managers"</span>,</span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">2.1</span>, <span class="fl">2.2</span>, <span class="fl">2.4</span>, <span class="fl">2.5</span>) <span class="sc">~</span> <span class="st">"Professionals"</span>,</span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">==</span> <span class="fl">2.3</span> <span class="sc">~</span> <span class="st">"Business and administration professionals"</span>,</span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">3.1</span>, <span class="fl">3.2</span>, <span class="fl">3.3</span>, <span class="fl">3.4</span>, <span class="fl">3.5</span>) <span class="sc">~</span> <span class="st">"Technicians and associated professionals employees"</span>,</span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">4.1</span>, <span class="fl">4.2</span>, <span class="fl">4.3</span>) <span class="sc">~</span> <span class="st">"small entrepreneurs"</span>,</span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">5.1</span>, <span class="fl">5.2</span>, <span class="fl">5.3</span>, <span class="fl">5.4</span>) <span class="sc">~</span> <span class="st">"Clerks and skilled service employees"</span>,</span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">6.1</span>, <span class="fl">6.2</span>, <span class="fl">6.3</span>, <span class="fl">6.4</span>, <span class="fl">6.5</span>) <span class="sc">~</span> <span class="st">"Skilled industrial employees"</span>,</span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">7.1</span>, <span class="fl">7.2</span>, <span class="fl">7.3</span>, <span class="fl">7.4</span>) <span class="sc">~</span> <span class="st">"Lower status employees"</span>,</span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">8.8</span>) <span class="sc">~</span> <span class="st">"Retired"</span>,</span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">9.1</span>) <span class="sc">~</span> <span class="st">"Student"</span>,</span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">9.2</span>, <span class="fl">9.3</span>) <span class="sc">~</span> <span class="st">"Unemployed or disabled"</span></span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>     )</span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>selects2023panelW4_2<span class="sc">$</span>eseg9 <span class="ot">=</span> <span class="fu">relevel</span>(<span class="fu">as.factor</span>(selects2023panelW4_2<span class="sc">$</span>eseg9), <span class="at">ref =</span> <span class="st">"Managers"</span>)</span>
-<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>selects2023panelW4_2<span class="sc">$</span>eseg10 <span class="ot">=</span> <span class="fu">relevel</span>(<span class="fu">as.factor</span>(selects2023panelW4_2<span class="sc">$</span>eseg10), <span class="at">ref =</span> <span class="st">"Business and administration professionals"</span>)</span>
-<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Schema de classe oesch</span></span>
-<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="co"># W4_f21300: Has R's professional situation changed in the past 12 months (e.g. new job, retirement, unemployment)</span></span>
-<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a><span class="co"># W1_4_f21500: R's current position at work, W1 updated with W4</span></span>
-<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a><span class="co"># W4_f21400: R's current working situation, if change in professional situation</span></span>
-<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a><span class="co"># W4_f21500: R's current position at work, if change in professional situation</span></span>
-<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a><span class="co"># W4_f21550: Number of persons employed at company, including R, if change in professional situation</span></span>
-<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a><span class="co"># W4_f21550_W1self: Asked to self-employed from W1 if no change in professional situation: number of persons employed at company, including R</span></span>
-<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>selects2023panelW4_2 <span class="ot">&lt;-</span> selects2023panelW4_2 <span class="sc">%&gt;%</span> </span>
-<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a>    <span class="at">self_employed =</span> <span class="fu">case_when</span>(</span>
-<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>      W1_4_f21500 <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="dv">1</span>, <span class="co"># self employed</span></span>
-<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>      W1_4_f21500 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="sc">~</span> <span class="dv">0</span> <span class="co"># employee</span></span>
-<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_employees =</span> <span class="fu">case_when</span>(</span>
-<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>      W4_f21300 <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> W4_f21550_W1self,</span>
-<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>      W4_f21300 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> W4_f21550</span>
-<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>    <span class="at">oesch8 =</span> <span class="fu">isco08_to_oesch</span>(W1_4_f21601_2dig<span class="sc">*</span><span class="dv">100</span>, <span class="at">self_employed =</span> self_employed, <span class="at">n_employees =</span> n_employees, <span class="at">n_classes =</span> <span class="dv">8</span>, <span class="at">to_factor =</span> T, <span class="at">label =</span> T)</span>
-<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>! ISCO variable is not a character. Beware that numeric ISCO variables possibly contain lost data. See https://cimentadaj.github.io/DIGCLASS/articles/repairing_isco_input.html for more details. Converting to a character vector.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>ℹ ISCO variable has occupations with digits less than 4. Converting to 4 digits.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>• Converted `200` to `0200`</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>• Converted `300` to `0300`</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>• Converted `100` to `0100`</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>selects2023panelW4_2<span class="sc">$</span>vote_choice <span class="ot">=</span> <span class="fu">factor</span>(<span class="fu">as_label</span>(selects2023panelW4_2<span class="sc">$</span>vote_choice))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="primes_standards_cantons.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 1.2.- Primes standards de l’assurance-maladie obligatoire en Suisse en 2025 (en CHF). Source: OFS</figcaption>
+</figure>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Le chargement a nécessité le package : Matrix</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attachement du package : 'Matrix'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Les objets suivants sont masqués depuis 'package:tidyr':
-
-    expand, pack, unpack</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attachement du package : 'lme4'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>L'objet suivant est masqué depuis 'package:marginaleffects':
-
-    refit</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(marginaleffects)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>data_model_fit2 <span class="ot">=</span> selects2023panelW4_2 <span class="sc">%&gt;%</span> </span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(yes_premium_initiative, eseg10, income_adj_decile, education_ISCED, lr, op_state_intervention, op_2many_worries_abt_env_vs_prices, op_min_wage, op_incr_retirement_age, op_foreigners_votingrights, vote_choice, gender, W4_age, language, canton) <span class="sc">%&gt;%</span> </span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>model_glm1 <span class="ot">=</span> <span class="fu">glm</span>(<span class="at">data =</span> data_model_fit2,</span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>                 yes_premium_initiative <span class="sc">~</span> income_adj_decile <span class="sc">+</span> education_ISCED <span class="sc">+</span> eseg10 <span class="sc">+</span> lr <span class="sc">+</span> op_state_intervention <span class="sc">+</span> op_2many_worries_abt_env_vs_prices <span class="sc">+</span> op_min_wage <span class="sc">+</span> op_incr_retirement_age <span class="sc">+</span> op_foreigners_votingrights <span class="sc">+</span> vote_choice <span class="sc">+</span> gender <span class="sc">+</span> W4_age <span class="sc">+</span> language <span class="sc">+</span> canton,</span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>                  <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>))</span>
-<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a><span class="co">#best_model_glm1 = stepAIC(model_glm1)</span></span>
-<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>best_model_glm2 <span class="ot">=</span> <span class="fu">glm</span>(<span class="at">formula =</span> yes_premium_initiative <span class="sc">~</span> income_adj_decile <span class="sc">+</span> <span class="fu">I</span>(eseg10 <span class="sc">==</span> <span class="st">"Retired"</span>) <span class="sc">+</span> lr <span class="sc">+</span> op_state_intervention <span class="sc">+</span> op_2many_worries_abt_env_vs_prices <span class="sc">+</span> op_min_wage <span class="sc">+</span> op_incr_retirement_age <span class="sc">+</span> op_foreigners_votingrights <span class="sc">+</span> vote_choice <span class="sc">+</span> gender <span class="sc">+</span> W4_age <span class="sc">+</span> language, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>), </span>
-<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>                      <span class="at">data =</span> data_model_fit2)</span>
-<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>avg_slopes_tbl_bestmodelW4 <span class="ot">=</span> best_model_glm2 <span class="sc">%&gt;%</span> </span>
-<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">avg_slopes</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjlabelled)</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>selects2023panel2<span class="sc">$</span>assurance_maladie_franchise_pour <span class="ot">&lt;-</span> <span class="fu">labelled</span>(selects2023panel2<span class="sc">$</span>assurance_maladie_franchise_pour, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Fortement contre"</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">"Contre"</span> <span class="ot">=</span> <span class="dv">2</span>, <span class="st">"Ni pour, ni contre"</span> <span class="ot">=</span> <span class="dv">3</span>, <span class="st">"Pour"</span> <span class="ot">=</span> <span class="dv">4</span>, <span class="st">"Fortement pour"</span> <span class="ot">=</span> <span class="dv">5</span>))</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>selects2023panel2 <span class="sc">%&gt;%</span> </span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>   dplyr<span class="sc">::</span><span class="fu">select</span>(assurance_maladie_franchise_pour, eseg10, lr, education_ISCED, langue, W1_age, gender) <span class="sc">%&gt;%</span> </span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">opinion_augmentation_franchise =</span> <span class="st">"assurance_maladie_franchise_pour"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">"op"</span>), as_label)) <span class="sc">%&gt;%</span> </span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">"opinion_augmentation_franchise"</span>), as_label)) <span class="sc">%&gt;%</span> </span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">datasummary_skim</span>(<span class="at">output =</span> <span class="st">"html"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div id="tbl-skim1" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-skim1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1254,20 +884,20 @@ Table&nbsp;1.2: Statistiques descriptive variables du premier modèle
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_caeellth0bvxo0n1rtkj = TinyTable.createTableFunctions("tinytable_caeellth0bvxo0n1rtkj");
+      const tableFns_9jd460warbja7ecnsd4p = TinyTable.createTableFunctions("tinytable_9jd460warbja7ecnsd4p");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '26', j: 1 }, { i: '26', j: 2 }, { i: '26', j: 3 }, { i: '26', j: 4 }, { i: '26', j: 5 }, { i: '26', j: 6 }, { i: '26', j: 7 }, { i: '26', j: 8 }, { i: '26', j: 9 } ], css_id: 'tinytable_css_t67gec7pr257mlya0nbb',}, 
-          { positions: [ { i: '4', j: 1 }, { i: '4', j: 2 }, { i: '4', j: 3 }, { i: '4', j: 4 }, { i: '4', j: 5 }, { i: '4', j: 6 }, { i: '4', j: 7 }, { i: '4', j: 8 }, { i: '4', j: 9 } ], css_id: 'tinytable_css_2eluhf27keqzi2ccuwyk',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 }, { i: '0', j: 5 }, { i: '0', j: 6 }, { i: '0', j: 7 }, { i: '0', j: 8 }, { i: '0', j: 9 } ], css_id: 'tinytable_css_dbytn875v4wnnh08qyjz',}, 
+          { positions: [ { i: '26', j: 1 }, { i: '26', j: 2 }, { i: '26', j: 3 }, { i: '26', j: 4 }, { i: '26', j: 5 }, { i: '26', j: 6 }, { i: '26', j: 7 }, { i: '26', j: 8 }, { i: '26', j: 9 } ], css_id: 'tinytable_css_lkidhjt52lf75o2x1yby',}, 
+          { positions: [ { i: '4', j: 1 }, { i: '4', j: 2 }, { i: '4', j: 3 }, { i: '4', j: 4 }, { i: '4', j: 5 }, { i: '4', j: 6 }, { i: '4', j: 7 }, { i: '4', j: 8 }, { i: '4', j: 9 } ], css_id: 'tinytable_css_eu23m7yltvsfuk8ybai9',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 }, { i: '0', j: 5 }, { i: '0', j: 6 }, { i: '0', j: 7 }, { i: '0', j: 8 }, { i: '0', j: 9 } ], css_id: 'tinytable_css_kq5h9qlkib0pl8pzdm4n',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_caeellth0bvxo0n1rtkj.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_9jd460warbja7ecnsd4p.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1276,12 +906,12 @@ Table&nbsp;1.2: Statistiques descriptive variables du premier modèle
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_caeellth0bvxo0n1rtkj td.tinytable_css_t67gec7pr257mlya0nbb, #tinytable_caeellth0bvxo0n1rtkj th.tinytable_css_t67gec7pr257mlya0nbb {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_caeellth0bvxo0n1rtkj td.tinytable_css_2eluhf27keqzi2ccuwyk, #tinytable_caeellth0bvxo0n1rtkj th.tinytable_css_2eluhf27keqzi2ccuwyk {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: #d3d8dc; --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
-    #tinytable_caeellth0bvxo0n1rtkj td.tinytable_css_dbytn875v4wnnh08qyjz, #tinytable_caeellth0bvxo0n1rtkj th.tinytable_css_dbytn875v4wnnh08qyjz {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_9jd460warbja7ecnsd4p td.tinytable_css_lkidhjt52lf75o2x1yby, #tinytable_9jd460warbja7ecnsd4p th.tinytable_css_lkidhjt52lf75o2x1yby {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_9jd460warbja7ecnsd4p td.tinytable_css_eu23m7yltvsfuk8ybai9, #tinytable_9jd460warbja7ecnsd4p th.tinytable_css_eu23m7yltvsfuk8ybai9 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: #d3d8dc; --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
+    #tinytable_9jd460warbja7ecnsd4p td.tinytable_css_kq5h9qlkib0pl8pzdm4n, #tinytable_9jd460warbja7ecnsd4p th.tinytable_css_kq5h9qlkib0pl8pzdm4n {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_caeellth0bvxo0n1rtkj" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_9jd460warbja7ecnsd4p" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -1594,12 +1224,6 @@ Table&nbsp;1.2: Statistiques descriptive variables du premier modèle
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggstats)</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>selects2023panel2 <span class="sc">%&gt;%</span> </span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(op_limit_immigration, op_funding_childcare , op_protec_env, op_min_wage, op_incr_retirementAge) <span class="sc">%&gt;%</span> </span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gglikert_stacked</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-likert1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1614,10 +1238,6 @@ Figure&nbsp;1.1: Statistiques descriptives des variables à échelle Likert du p
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>selects2023panel2 <span class="sc">%&gt;%</span> </span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(op_state_interv, op_social_expenses, op_eu_integration, op_chances_foreigners, op_gender_equality, op_taxes_high_income, op_traditions) <span class="sc">%&gt;%</span> </span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a> <span class="fu">gglikert_stacked</span>()<span class="sc">+</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a> <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">5</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-likert2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1632,9 +1252,6 @@ Figure&nbsp;1.2: Statistiques descriptives des variables à échelle Likert du p
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>selects2023panel2 <span class="sc">%&gt;%</span> </span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(probs_vote_plr, probs_vote_centre, probs_vote_ps, probs_vote_udc, probs_vote_verts, probs_vote_vertsliberaux) <span class="sc">%&gt;%</span> </span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gglikert_stacked</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-likert3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1649,15 +1266,6 @@ Figure&nbsp;1.3: Statistiques descriptives des variables à échelle Likert du p
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-descriptivemodel2</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Statistiques descriptives: Panel Selects 2025 vague 4 (variables du deuxième modèle)"</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>selects2023panelW4_2 <span class="sc">%&gt;%</span> </span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(yes_premium_initiative, eseg10, education_ISCED, lr, vote_choice, gender, W4_age, language, W4_f10771a) <span class="sc">%&gt;%</span> </span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">"W4_f10771a"</span>), as_label)) <span class="sc">%&gt;%</span> </span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">datasummary_skim</span>(<span class="at">output =</span> <span class="st">"html"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <!-- preamble start -->
 
@@ -1665,20 +1273,20 @@ Figure&nbsp;1.3: Statistiques descriptives des variables à échelle Likert du p
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_aok8q1fr8a57twq117tw = TinyTable.createTableFunctions("tinytable_aok8q1fr8a57twq117tw");
+      const tableFns_74h17dtol338xx8yvomz = TinyTable.createTableFunctions("tinytable_74h17dtol338xx8yvomz");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '33', j: 1 }, { i: '33', j: 2 }, { i: '33', j: 3 }, { i: '33', j: 4 }, { i: '33', j: 5 }, { i: '33', j: 6 }, { i: '33', j: 7 }, { i: '33', j: 8 }, { i: '33', j: 9 } ], css_id: 'tinytable_css_y2hgp4o5uklp22bo1apw',}, 
-          { positions: [ { i: '5', j: 1 }, { i: '5', j: 2 }, { i: '5', j: 3 }, { i: '5', j: 4 }, { i: '5', j: 5 }, { i: '5', j: 6 }, { i: '5', j: 7 }, { i: '5', j: 8 }, { i: '5', j: 9 } ], css_id: 'tinytable_css_p0oq997vcyhxiozd8tsk',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 }, { i: '0', j: 5 }, { i: '0', j: 6 }, { i: '0', j: 7 }, { i: '0', j: 8 }, { i: '0', j: 9 } ], css_id: 'tinytable_css_flawi688ytg1ij499vt2',}, 
+          { positions: [ { i: '33', j: 1 }, { i: '33', j: 2 }, { i: '33', j: 3 }, { i: '33', j: 4 }, { i: '33', j: 5 }, { i: '33', j: 6 }, { i: '33', j: 7 }, { i: '33', j: 8 }, { i: '33', j: 9 } ], css_id: 'tinytable_css_jhf4jia673jm3qw31sp8',}, 
+          { positions: [ { i: '5', j: 1 }, { i: '5', j: 2 }, { i: '5', j: 3 }, { i: '5', j: 4 }, { i: '5', j: 5 }, { i: '5', j: 6 }, { i: '5', j: 7 }, { i: '5', j: 8 }, { i: '5', j: 9 } ], css_id: 'tinytable_css_qw67kextm01kv8lm76z4',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 }, { i: '0', j: 5 }, { i: '0', j: 6 }, { i: '0', j: 7 }, { i: '0', j: 8 }, { i: '0', j: 9 } ], css_id: 'tinytable_css_far64ua8hyco1nrace97',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_aok8q1fr8a57twq117tw.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_74h17dtol338xx8yvomz.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1687,12 +1295,12 @@ Figure&nbsp;1.3: Statistiques descriptives des variables à échelle Likert du p
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_aok8q1fr8a57twq117tw td.tinytable_css_y2hgp4o5uklp22bo1apw, #tinytable_aok8q1fr8a57twq117tw th.tinytable_css_y2hgp4o5uklp22bo1apw {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_aok8q1fr8a57twq117tw td.tinytable_css_p0oq997vcyhxiozd8tsk, #tinytable_aok8q1fr8a57twq117tw th.tinytable_css_p0oq997vcyhxiozd8tsk {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: #d3d8dc; --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
-    #tinytable_aok8q1fr8a57twq117tw td.tinytable_css_flawi688ytg1ij499vt2, #tinytable_aok8q1fr8a57twq117tw th.tinytable_css_flawi688ytg1ij499vt2 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_74h17dtol338xx8yvomz td.tinytable_css_jhf4jia673jm3qw31sp8, #tinytable_74h17dtol338xx8yvomz th.tinytable_css_jhf4jia673jm3qw31sp8 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_74h17dtol338xx8yvomz td.tinytable_css_qw67kextm01kv8lm76z4, #tinytable_74h17dtol338xx8yvomz th.tinytable_css_qw67kextm01kv8lm76z4 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: #d3d8dc; --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
+    #tinytable_74h17dtol338xx8yvomz td.tinytable_css_far64ua8hyco1nrace97, #tinytable_74h17dtol338xx8yvomz th.tinytable_css_far64ua8hyco1nrace97 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_aok8q1fr8a57twq117tw" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_74h17dtol338xx8yvomz" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -2079,12 +1687,6 @@ Figure&nbsp;1.3: Statistiques descriptives des variables à échelle Likert du p
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>likertW4 <span class="ot">&lt;-</span> </span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>selects2023panelW4_2 <span class="sc">%&gt;%</span> </span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(op_state_intervention, op_2many_worries_abt_env_vs_prices, op_min_wage, op_incr_retirement_age, op_foreigners_votingrights) <span class="sc">%&gt;%</span> <span class="fu">gglikert_stacked</span>()<span class="sc">+</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>))</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>likertW4</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-likert4" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -2099,8 +1701,6 @@ Figure&nbsp;1.4: Statistiques descriptives des variables à échelle Likert du d
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(<span class="fu">list</span>(<span class="st">"Augmentation franchise minimale"</span> <span class="ot">=</span> model1_step2), <span class="at">stars =</span> T)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div id="tbl-reglogit" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-reglogit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -2114,25 +1714,25 @@ Table&nbsp;1.3: Régressions logit (log(odd))
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_51xu8ua6c3wr717qwdhr = TinyTable.createTableFunctions("tinytable_51xu8ua6c3wr717qwdhr");
+      const tableFns_d2eqlhtjxavfq437m3dr = TinyTable.createTableFunctions("tinytable_d2eqlhtjxavfq437m3dr");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '46', j: 2 } ], css_id: 'tinytable_css_86b6xj8kilh5q0qeq3op',}, 
-          { positions: [ { i: '40', j: 2 } ], css_id: 'tinytable_css_tqngl1d1t3pbaw7mehf5',}, 
-          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '10', j: 2 }, { i: '11', j: 2 }, { i: '12', j: 2 }, { i: '13', j: 2 }, { i: '14', j: 2 }, { i: '15', j: 2 }, { i: '16', j: 2 }, { i: '17', j: 2 }, { i: '18', j: 2 }, { i: '19', j: 2 }, { i: '20', j: 2 }, { i: '21', j: 2 }, { i: '22', j: 2 }, { i: '23', j: 2 }, { i: '24', j: 2 }, { i: '25', j: 2 }, { i: '26', j: 2 }, { i: '27', j: 2 }, { i: '28', j: 2 }, { i: '29', j: 2 }, { i: '30', j: 2 }, { i: '31', j: 2 }, { i: '32', j: 2 }, { i: '33', j: 2 }, { i: '34', j: 2 }, { i: '35', j: 2 }, { i: '36', j: 2 }, { i: '37', j: 2 }, { i: '38', j: 2 }, { i: '39', j: 2 }, { i: '41', j: 2 }, { i: '42', j: 2 }, { i: '43', j: 2 }, { i: '44', j: 2 }, { i: '45', j: 2 } ], css_id: 'tinytable_css_z1vgsrynwpkk0vsityto',}, 
-          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_7jazil6hg4lif0lcr8t1',}, 
-          { positions: [ { i: '46', j: 1 } ], css_id: 'tinytable_css_nyvxinl3u4vdtwhlar7a',}, 
-          { positions: [ { i: '40', j: 1 } ], css_id: 'tinytable_css_gbftrt63sjwklufobhyw',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '14', j: 1 }, { i: '15', j: 1 }, { i: '16', j: 1 }, { i: '17', j: 1 }, { i: '18', j: 1 }, { i: '19', j: 1 }, { i: '20', j: 1 }, { i: '21', j: 1 }, { i: '22', j: 1 }, { i: '23', j: 1 }, { i: '24', j: 1 }, { i: '25', j: 1 }, { i: '26', j: 1 }, { i: '27', j: 1 }, { i: '28', j: 1 }, { i: '29', j: 1 }, { i: '30', j: 1 }, { i: '31', j: 1 }, { i: '32', j: 1 }, { i: '33', j: 1 }, { i: '34', j: 1 }, { i: '35', j: 1 }, { i: '36', j: 1 }, { i: '37', j: 1 }, { i: '38', j: 1 }, { i: '39', j: 1 }, { i: '41', j: 1 }, { i: '42', j: 1 }, { i: '43', j: 1 }, { i: '44', j: 1 }, { i: '45', j: 1 } ], css_id: 'tinytable_css_bxv9t5jjxe8hzgyxqhp9',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_9oo4qqw6cfbihl7soh4w',}, 
+          { positions: [ { i: '46', j: 2 } ], css_id: 'tinytable_css_8jdx21h2df3sh0314w6k',}, 
+          { positions: [ { i: '40', j: 2 } ], css_id: 'tinytable_css_vv4nomncjxz3pc1b5qv9',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '10', j: 2 }, { i: '11', j: 2 }, { i: '12', j: 2 }, { i: '13', j: 2 }, { i: '14', j: 2 }, { i: '15', j: 2 }, { i: '16', j: 2 }, { i: '17', j: 2 }, { i: '18', j: 2 }, { i: '19', j: 2 }, { i: '20', j: 2 }, { i: '21', j: 2 }, { i: '22', j: 2 }, { i: '23', j: 2 }, { i: '24', j: 2 }, { i: '25', j: 2 }, { i: '26', j: 2 }, { i: '27', j: 2 }, { i: '28', j: 2 }, { i: '29', j: 2 }, { i: '30', j: 2 }, { i: '31', j: 2 }, { i: '32', j: 2 }, { i: '33', j: 2 }, { i: '34', j: 2 }, { i: '35', j: 2 }, { i: '36', j: 2 }, { i: '37', j: 2 }, { i: '38', j: 2 }, { i: '39', j: 2 }, { i: '41', j: 2 }, { i: '42', j: 2 }, { i: '43', j: 2 }, { i: '44', j: 2 }, { i: '45', j: 2 } ], css_id: 'tinytable_css_9yjr31qy9xc0s62b8gka',}, 
+          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_o229uaeq8l4cthq4xd9p',}, 
+          { positions: [ { i: '46', j: 1 } ], css_id: 'tinytable_css_qa7mcgkgpo9wo6fdk1zh',}, 
+          { positions: [ { i: '40', j: 1 } ], css_id: 'tinytable_css_3qk0x398xcggnmlcon7u',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '14', j: 1 }, { i: '15', j: 1 }, { i: '16', j: 1 }, { i: '17', j: 1 }, { i: '18', j: 1 }, { i: '19', j: 1 }, { i: '20', j: 1 }, { i: '21', j: 1 }, { i: '22', j: 1 }, { i: '23', j: 1 }, { i: '24', j: 1 }, { i: '25', j: 1 }, { i: '26', j: 1 }, { i: '27', j: 1 }, { i: '28', j: 1 }, { i: '29', j: 1 }, { i: '30', j: 1 }, { i: '31', j: 1 }, { i: '32', j: 1 }, { i: '33', j: 1 }, { i: '34', j: 1 }, { i: '35', j: 1 }, { i: '36', j: 1 }, { i: '37', j: 1 }, { i: '38', j: 1 }, { i: '39', j: 1 }, { i: '41', j: 1 }, { i: '42', j: 1 }, { i: '43', j: 1 }, { i: '44', j: 1 }, { i: '45', j: 1 } ], css_id: 'tinytable_css_ljmdpwd9b1p92iduuo6e',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_yg9i3rqyyif5q8mt4u8x',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_51xu8ua6c3wr717qwdhr.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_d2eqlhtjxavfq437m3dr.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -2141,17 +1741,17 @@ Table&nbsp;1.3: Régressions logit (log(odd))
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_51xu8ua6c3wr717qwdhr td.tinytable_css_86b6xj8kilh5q0qeq3op, #tinytable_51xu8ua6c3wr717qwdhr th.tinytable_css_86b6xj8kilh5q0qeq3op {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_51xu8ua6c3wr717qwdhr td.tinytable_css_tqngl1d1t3pbaw7mehf5, #tinytable_51xu8ua6c3wr717qwdhr th.tinytable_css_tqngl1d1t3pbaw7mehf5 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_51xu8ua6c3wr717qwdhr td.tinytable_css_z1vgsrynwpkk0vsityto, #tinytable_51xu8ua6c3wr717qwdhr th.tinytable_css_z1vgsrynwpkk0vsityto { text-align: center }
-    #tinytable_51xu8ua6c3wr717qwdhr td.tinytable_css_7jazil6hg4lif0lcr8t1, #tinytable_51xu8ua6c3wr717qwdhr th.tinytable_css_7jazil6hg4lif0lcr8t1 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_51xu8ua6c3wr717qwdhr td.tinytable_css_nyvxinl3u4vdtwhlar7a, #tinytable_51xu8ua6c3wr717qwdhr th.tinytable_css_nyvxinl3u4vdtwhlar7a {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_51xu8ua6c3wr717qwdhr td.tinytable_css_gbftrt63sjwklufobhyw, #tinytable_51xu8ua6c3wr717qwdhr th.tinytable_css_gbftrt63sjwklufobhyw {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_51xu8ua6c3wr717qwdhr td.tinytable_css_bxv9t5jjxe8hzgyxqhp9, #tinytable_51xu8ua6c3wr717qwdhr th.tinytable_css_bxv9t5jjxe8hzgyxqhp9 { text-align: left }
-    #tinytable_51xu8ua6c3wr717qwdhr td.tinytable_css_9oo4qqw6cfbihl7soh4w, #tinytable_51xu8ua6c3wr717qwdhr th.tinytable_css_9oo4qqw6cfbihl7soh4w {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_d2eqlhtjxavfq437m3dr td.tinytable_css_8jdx21h2df3sh0314w6k, #tinytable_d2eqlhtjxavfq437m3dr th.tinytable_css_8jdx21h2df3sh0314w6k {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_d2eqlhtjxavfq437m3dr td.tinytable_css_vv4nomncjxz3pc1b5qv9, #tinytable_d2eqlhtjxavfq437m3dr th.tinytable_css_vv4nomncjxz3pc1b5qv9 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_d2eqlhtjxavfq437m3dr td.tinytable_css_9yjr31qy9xc0s62b8gka, #tinytable_d2eqlhtjxavfq437m3dr th.tinytable_css_9yjr31qy9xc0s62b8gka { text-align: center }
+    #tinytable_d2eqlhtjxavfq437m3dr td.tinytable_css_o229uaeq8l4cthq4xd9p, #tinytable_d2eqlhtjxavfq437m3dr th.tinytable_css_o229uaeq8l4cthq4xd9p {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_d2eqlhtjxavfq437m3dr td.tinytable_css_qa7mcgkgpo9wo6fdk1zh, #tinytable_d2eqlhtjxavfq437m3dr th.tinytable_css_qa7mcgkgpo9wo6fdk1zh {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_d2eqlhtjxavfq437m3dr td.tinytable_css_3qk0x398xcggnmlcon7u, #tinytable_d2eqlhtjxavfq437m3dr th.tinytable_css_3qk0x398xcggnmlcon7u {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_d2eqlhtjxavfq437m3dr td.tinytable_css_ljmdpwd9b1p92iduuo6e, #tinytable_d2eqlhtjxavfq437m3dr th.tinytable_css_ljmdpwd9b1p92iduuo6e { text-align: left }
+    #tinytable_d2eqlhtjxavfq437m3dr td.tinytable_css_yg9i3rqyyif5q8mt4u8x, #tinytable_d2eqlhtjxavfq437m3dr th.tinytable_css_yg9i3rqyyif5q8mt4u8x {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_51xu8ua6c3wr717qwdhr" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_d2eqlhtjxavfq437m3dr" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -2355,7 +1955,6 @@ Table&nbsp;1.3: Régressions logit (log(odd))
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(<span class="fu">list</span>(<span class="st">"Initiative pour l'allègement des primes"</span> <span class="ot">=</span> best_model_glm2), <span class="at">stars =</span> T)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <!-- preamble start -->
 
@@ -2363,25 +1962,25 @@ Table&nbsp;1.3: Régressions logit (log(odd))
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_7zmkp0yumhyxk6vw7rmw = TinyTable.createTableFunctions("tinytable_7zmkp0yumhyxk6vw7rmw");
+      const tableFns_cshmlko61dvrrj3prwqb = TinyTable.createTableFunctions("tinytable_cshmlko61dvrrj3prwqb");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '44', j: 2 } ], css_id: 'tinytable_css_mb2m5mk4bzmzgv64yr67',}, 
-          { positions: [ { i: '38', j: 2 } ], css_id: 'tinytable_css_dpnq5d3b46hmowylskco',}, 
-          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '10', j: 2 }, { i: '11', j: 2 }, { i: '12', j: 2 }, { i: '13', j: 2 }, { i: '14', j: 2 }, { i: '15', j: 2 }, { i: '16', j: 2 }, { i: '17', j: 2 }, { i: '18', j: 2 }, { i: '19', j: 2 }, { i: '20', j: 2 }, { i: '21', j: 2 }, { i: '22', j: 2 }, { i: '23', j: 2 }, { i: '24', j: 2 }, { i: '25', j: 2 }, { i: '26', j: 2 }, { i: '27', j: 2 }, { i: '28', j: 2 }, { i: '29', j: 2 }, { i: '30', j: 2 }, { i: '31', j: 2 }, { i: '32', j: 2 }, { i: '33', j: 2 }, { i: '34', j: 2 }, { i: '35', j: 2 }, { i: '36', j: 2 }, { i: '37', j: 2 }, { i: '39', j: 2 }, { i: '40', j: 2 }, { i: '41', j: 2 }, { i: '42', j: 2 }, { i: '43', j: 2 } ], css_id: 'tinytable_css_qyyltl2jd45reygs8r0r',}, 
-          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_r8onlfkq5emp1ks4bi3k',}, 
-          { positions: [ { i: '44', j: 1 } ], css_id: 'tinytable_css_ejew3tzs7xq4644v7bnw',}, 
-          { positions: [ { i: '38', j: 1 } ], css_id: 'tinytable_css_nlz5x5j0techks8l6ffi',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '14', j: 1 }, { i: '15', j: 1 }, { i: '16', j: 1 }, { i: '17', j: 1 }, { i: '18', j: 1 }, { i: '19', j: 1 }, { i: '20', j: 1 }, { i: '21', j: 1 }, { i: '22', j: 1 }, { i: '23', j: 1 }, { i: '24', j: 1 }, { i: '25', j: 1 }, { i: '26', j: 1 }, { i: '27', j: 1 }, { i: '28', j: 1 }, { i: '29', j: 1 }, { i: '30', j: 1 }, { i: '31', j: 1 }, { i: '32', j: 1 }, { i: '33', j: 1 }, { i: '34', j: 1 }, { i: '35', j: 1 }, { i: '36', j: 1 }, { i: '37', j: 1 }, { i: '39', j: 1 }, { i: '40', j: 1 }, { i: '41', j: 1 }, { i: '42', j: 1 }, { i: '43', j: 1 } ], css_id: 'tinytable_css_bfqdtqvu0ctrqwv4ohvr',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_ic5u3gpowqj027674jn2',}, 
+          { positions: [ { i: '44', j: 2 } ], css_id: 'tinytable_css_mtpdbnvmwlawk9xczjdn',}, 
+          { positions: [ { i: '38', j: 2 } ], css_id: 'tinytable_css_yuro1snep5g8lyshco9s',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '10', j: 2 }, { i: '11', j: 2 }, { i: '12', j: 2 }, { i: '13', j: 2 }, { i: '14', j: 2 }, { i: '15', j: 2 }, { i: '16', j: 2 }, { i: '17', j: 2 }, { i: '18', j: 2 }, { i: '19', j: 2 }, { i: '20', j: 2 }, { i: '21', j: 2 }, { i: '22', j: 2 }, { i: '23', j: 2 }, { i: '24', j: 2 }, { i: '25', j: 2 }, { i: '26', j: 2 }, { i: '27', j: 2 }, { i: '28', j: 2 }, { i: '29', j: 2 }, { i: '30', j: 2 }, { i: '31', j: 2 }, { i: '32', j: 2 }, { i: '33', j: 2 }, { i: '34', j: 2 }, { i: '35', j: 2 }, { i: '36', j: 2 }, { i: '37', j: 2 }, { i: '39', j: 2 }, { i: '40', j: 2 }, { i: '41', j: 2 }, { i: '42', j: 2 }, { i: '43', j: 2 } ], css_id: 'tinytable_css_zpld2ibaf00c76wfppq6',}, 
+          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_wjhgxu2f43n8mlptfijj',}, 
+          { positions: [ { i: '44', j: 1 } ], css_id: 'tinytable_css_8575mvavbg41j484bkfn',}, 
+          { positions: [ { i: '38', j: 1 } ], css_id: 'tinytable_css_cwgjuisij5kwfu8dkjgs',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '14', j: 1 }, { i: '15', j: 1 }, { i: '16', j: 1 }, { i: '17', j: 1 }, { i: '18', j: 1 }, { i: '19', j: 1 }, { i: '20', j: 1 }, { i: '21', j: 1 }, { i: '22', j: 1 }, { i: '23', j: 1 }, { i: '24', j: 1 }, { i: '25', j: 1 }, { i: '26', j: 1 }, { i: '27', j: 1 }, { i: '28', j: 1 }, { i: '29', j: 1 }, { i: '30', j: 1 }, { i: '31', j: 1 }, { i: '32', j: 1 }, { i: '33', j: 1 }, { i: '34', j: 1 }, { i: '35', j: 1 }, { i: '36', j: 1 }, { i: '37', j: 1 }, { i: '39', j: 1 }, { i: '40', j: 1 }, { i: '41', j: 1 }, { i: '42', j: 1 }, { i: '43', j: 1 } ], css_id: 'tinytable_css_gyexkaue8t5fem0f547i',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_hp7hl9myltgzljih7dqe',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_7zmkp0yumhyxk6vw7rmw.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_cshmlko61dvrrj3prwqb.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -2390,17 +1989,17 @@ Table&nbsp;1.3: Régressions logit (log(odd))
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_7zmkp0yumhyxk6vw7rmw td.tinytable_css_mb2m5mk4bzmzgv64yr67, #tinytable_7zmkp0yumhyxk6vw7rmw th.tinytable_css_mb2m5mk4bzmzgv64yr67 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_7zmkp0yumhyxk6vw7rmw td.tinytable_css_dpnq5d3b46hmowylskco, #tinytable_7zmkp0yumhyxk6vw7rmw th.tinytable_css_dpnq5d3b46hmowylskco {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_7zmkp0yumhyxk6vw7rmw td.tinytable_css_qyyltl2jd45reygs8r0r, #tinytable_7zmkp0yumhyxk6vw7rmw th.tinytable_css_qyyltl2jd45reygs8r0r { text-align: center }
-    #tinytable_7zmkp0yumhyxk6vw7rmw td.tinytable_css_r8onlfkq5emp1ks4bi3k, #tinytable_7zmkp0yumhyxk6vw7rmw th.tinytable_css_r8onlfkq5emp1ks4bi3k {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_7zmkp0yumhyxk6vw7rmw td.tinytable_css_ejew3tzs7xq4644v7bnw, #tinytable_7zmkp0yumhyxk6vw7rmw th.tinytable_css_ejew3tzs7xq4644v7bnw {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_7zmkp0yumhyxk6vw7rmw td.tinytable_css_nlz5x5j0techks8l6ffi, #tinytable_7zmkp0yumhyxk6vw7rmw th.tinytable_css_nlz5x5j0techks8l6ffi {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_7zmkp0yumhyxk6vw7rmw td.tinytable_css_bfqdtqvu0ctrqwv4ohvr, #tinytable_7zmkp0yumhyxk6vw7rmw th.tinytable_css_bfqdtqvu0ctrqwv4ohvr { text-align: left }
-    #tinytable_7zmkp0yumhyxk6vw7rmw td.tinytable_css_ic5u3gpowqj027674jn2, #tinytable_7zmkp0yumhyxk6vw7rmw th.tinytable_css_ic5u3gpowqj027674jn2 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_cshmlko61dvrrj3prwqb td.tinytable_css_mtpdbnvmwlawk9xczjdn, #tinytable_cshmlko61dvrrj3prwqb th.tinytable_css_mtpdbnvmwlawk9xczjdn {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_cshmlko61dvrrj3prwqb td.tinytable_css_yuro1snep5g8lyshco9s, #tinytable_cshmlko61dvrrj3prwqb th.tinytable_css_yuro1snep5g8lyshco9s {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_cshmlko61dvrrj3prwqb td.tinytable_css_zpld2ibaf00c76wfppq6, #tinytable_cshmlko61dvrrj3prwqb th.tinytable_css_zpld2ibaf00c76wfppq6 { text-align: center }
+    #tinytable_cshmlko61dvrrj3prwqb td.tinytable_css_wjhgxu2f43n8mlptfijj, #tinytable_cshmlko61dvrrj3prwqb th.tinytable_css_wjhgxu2f43n8mlptfijj {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_cshmlko61dvrrj3prwqb td.tinytable_css_8575mvavbg41j484bkfn, #tinytable_cshmlko61dvrrj3prwqb th.tinytable_css_8575mvavbg41j484bkfn {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_cshmlko61dvrrj3prwqb td.tinytable_css_cwgjuisij5kwfu8dkjgs, #tinytable_cshmlko61dvrrj3prwqb th.tinytable_css_cwgjuisij5kwfu8dkjgs {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_cshmlko61dvrrj3prwqb td.tinytable_css_gyexkaue8t5fem0f547i, #tinytable_cshmlko61dvrrj3prwqb th.tinytable_css_gyexkaue8t5fem0f547i { text-align: left }
+    #tinytable_cshmlko61dvrrj3prwqb td.tinytable_css_hp7hl9myltgzljih7dqe, #tinytable_cshmlko61dvrrj3prwqb th.tinytable_css_hp7hl9myltgzljih7dqe {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_7zmkp0yumhyxk6vw7rmw" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_cshmlko61dvrrj3prwqb" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -2593,32 +2192,6 @@ Table&nbsp;1.3: Régressions logit (log(odd))
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attachement du package : 'sjPlot'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>L'objet suivant est masqué depuis 'package:ggplot2':
-
-    set_theme</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>glmer_canton_franchise <span class="ot">=</span> <span class="fu">glmer</span>(<span class="at">data =</span> selects2023panel2,</span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>                               contre_augm_franch_min <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>canton),</span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>                               <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>))</span>
-<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>glmer_canton_primes <span class="ot">=</span> <span class="fu">glmer</span>(<span class="at">data =</span> selects2023panelW4_2,</span>
-<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>                               yes_premium_initiative <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>canton),</span>
-<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>                            <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(<span class="at">models =</span> <span class="fu">list</span>(<span class="st">"Augmentation franchise minimale"</span> <span class="ot">=</span> glmer_canton_primes, <span class="st">"Initiative pour l'allègement des primes"</span> <span class="ot">=</span> glmer_canton_franchise))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div id="tbl-canton" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-canton-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -2632,25 +2205,25 @@ Table&nbsp;1.4: Modèle multiniveau: cantons suisses en niveau
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_5fgk7dp1lqqke1liwx7z = TinyTable.createTableFunctions("tinytable_5fgk7dp1lqqke1liwx7z");
+      const tableFns_uq762pb4fjjlkg2o3tqk = TinyTable.createTableFunctions("tinytable_uq762pb4fjjlkg2o3tqk");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '10', j: 2 }, { i: '10', j: 3 } ], css_id: 'tinytable_css_a5esfjo3xsie23lx89pq',}, 
-          { positions: [ { i: '3', j: 2 }, { i: '3', j: 3 } ], css_id: 'tinytable_css_560ciyzso9whsjqlrzpt',}, 
-          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '4', j: 3 }, { i: '5', j: 3 }, { i: '6', j: 3 }, { i: '7', j: 3 }, { i: '8', j: 3 }, { i: '9', j: 3 } ], css_id: 'tinytable_css_tsslbzcy883scm4yzk4c',}, 
-          { positions: [ { i: '0', j: 2 }, { i: '0', j: 3 } ], css_id: 'tinytable_css_esh85rvk34ipoikzozk1',}, 
-          { positions: [ { i: '10', j: 1 } ], css_id: 'tinytable_css_julr8a2umkn1fnp99ana',}, 
-          { positions: [ { i: '3', j: 1 } ], css_id: 'tinytable_css_lfav37o8h0wc4gxkb5a6',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 } ], css_id: 'tinytable_css_n4095o9j83co0nadf00a',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_dbl0h01v1bjq8o7sr2rp',}, 
+          { positions: [ { i: '10', j: 2 }, { i: '10', j: 3 } ], css_id: 'tinytable_css_417r1ou04a3zf638b5t2',}, 
+          { positions: [ { i: '3', j: 2 }, { i: '3', j: 3 } ], css_id: 'tinytable_css_h4aps7s7bz558c53t81p',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '4', j: 3 }, { i: '5', j: 3 }, { i: '6', j: 3 }, { i: '7', j: 3 }, { i: '8', j: 3 }, { i: '9', j: 3 } ], css_id: 'tinytable_css_sqj72vq2xttuyj8151if',}, 
+          { positions: [ { i: '0', j: 2 }, { i: '0', j: 3 } ], css_id: 'tinytable_css_x0adhl75xfala6vygd7a',}, 
+          { positions: [ { i: '10', j: 1 } ], css_id: 'tinytable_css_2ho182jyfd7221xb1qmm',}, 
+          { positions: [ { i: '3', j: 1 } ], css_id: 'tinytable_css_m3j5dqorlz5pqmpl0lsi',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 } ], css_id: 'tinytable_css_obtlu0c3aebhaxuil05u',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_o3cu9wf88k9qvnhzi1h4',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_5fgk7dp1lqqke1liwx7z.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_uq762pb4fjjlkg2o3tqk.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -2659,17 +2232,17 @@ Table&nbsp;1.4: Modèle multiniveau: cantons suisses en niveau
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_5fgk7dp1lqqke1liwx7z td.tinytable_css_a5esfjo3xsie23lx89pq, #tinytable_5fgk7dp1lqqke1liwx7z th.tinytable_css_a5esfjo3xsie23lx89pq {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_5fgk7dp1lqqke1liwx7z td.tinytable_css_560ciyzso9whsjqlrzpt, #tinytable_5fgk7dp1lqqke1liwx7z th.tinytable_css_560ciyzso9whsjqlrzpt {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_5fgk7dp1lqqke1liwx7z td.tinytable_css_tsslbzcy883scm4yzk4c, #tinytable_5fgk7dp1lqqke1liwx7z th.tinytable_css_tsslbzcy883scm4yzk4c { text-align: center }
-    #tinytable_5fgk7dp1lqqke1liwx7z td.tinytable_css_esh85rvk34ipoikzozk1, #tinytable_5fgk7dp1lqqke1liwx7z th.tinytable_css_esh85rvk34ipoikzozk1 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_5fgk7dp1lqqke1liwx7z td.tinytable_css_julr8a2umkn1fnp99ana, #tinytable_5fgk7dp1lqqke1liwx7z th.tinytable_css_julr8a2umkn1fnp99ana {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_5fgk7dp1lqqke1liwx7z td.tinytable_css_lfav37o8h0wc4gxkb5a6, #tinytable_5fgk7dp1lqqke1liwx7z th.tinytable_css_lfav37o8h0wc4gxkb5a6 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_5fgk7dp1lqqke1liwx7z td.tinytable_css_n4095o9j83co0nadf00a, #tinytable_5fgk7dp1lqqke1liwx7z th.tinytable_css_n4095o9j83co0nadf00a { text-align: left }
-    #tinytable_5fgk7dp1lqqke1liwx7z td.tinytable_css_dbl0h01v1bjq8o7sr2rp, #tinytable_5fgk7dp1lqqke1liwx7z th.tinytable_css_dbl0h01v1bjq8o7sr2rp {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_uq762pb4fjjlkg2o3tqk td.tinytable_css_417r1ou04a3zf638b5t2, #tinytable_uq762pb4fjjlkg2o3tqk th.tinytable_css_417r1ou04a3zf638b5t2 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_uq762pb4fjjlkg2o3tqk td.tinytable_css_h4aps7s7bz558c53t81p, #tinytable_uq762pb4fjjlkg2o3tqk th.tinytable_css_h4aps7s7bz558c53t81p {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_uq762pb4fjjlkg2o3tqk td.tinytable_css_sqj72vq2xttuyj8151if, #tinytable_uq762pb4fjjlkg2o3tqk th.tinytable_css_sqj72vq2xttuyj8151if { text-align: center }
+    #tinytable_uq762pb4fjjlkg2o3tqk td.tinytable_css_x0adhl75xfala6vygd7a, #tinytable_uq762pb4fjjlkg2o3tqk th.tinytable_css_x0adhl75xfala6vygd7a {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_uq762pb4fjjlkg2o3tqk td.tinytable_css_2ho182jyfd7221xb1qmm, #tinytable_uq762pb4fjjlkg2o3tqk th.tinytable_css_2ho182jyfd7221xb1qmm {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_uq762pb4fjjlkg2o3tqk td.tinytable_css_m3j5dqorlz5pqmpl0lsi, #tinytable_uq762pb4fjjlkg2o3tqk th.tinytable_css_m3j5dqorlz5pqmpl0lsi {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_uq762pb4fjjlkg2o3tqk td.tinytable_css_obtlu0c3aebhaxuil05u, #tinytable_uq762pb4fjjlkg2o3tqk th.tinytable_css_obtlu0c3aebhaxuil05u { text-align: left }
+    #tinytable_uq762pb4fjjlkg2o3tqk td.tinytable_css_o3cu9wf88k9qvnhzi1h4, #tinytable_uq762pb4fjjlkg2o3tqk th.tinytable_css_o3cu9wf88k9qvnhzi1h4 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_5fgk7dp1lqqke1liwx7z" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_uq762pb4fjjlkg2o3tqk" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -2740,15 +2313,6 @@ Table&nbsp;1.4: Modèle multiniveau: cantons suisses en niveau
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>glm_eseg_franchise <span class="ot">=</span> <span class="fu">glm</span>(<span class="at">data =</span> selects2023panel2,</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>                               contre_augm_franch_min <span class="sc">~</span> eseg10,</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>                               <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>))</span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>glm_eseg_primes <span class="ot">=</span> <span class="fu">glm</span>(<span class="at">data =</span> selects2023panelW4_2,</span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>                               yes_premium_initiative <span class="sc">~</span> eseg10,</span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>                            <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>))</span>
-<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(<span class="fu">list</span>(<span class="st">"Augmentation franchise minimale"</span> <span class="ot">=</span> glm_eseg_franchise, <span class="st">"Initiative pour l'allègement des primes"</span> <span class="ot">=</span> glm_eseg_primes), <span class="at">stars =</span> T)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div id="tbl-reg2" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-reg2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -2762,25 +2326,25 @@ Table&nbsp;1.5: Régressions logistiques simples: opposition à l’augmentation
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_ych91qnayueovsu6mawz = TinyTable.createTableFunctions("tinytable_ych91qnayueovsu6mawz");
+      const tableFns_g71i0eswlq75rgobfi5b = TinyTable.createTableFunctions("tinytable_g71i0eswlq75rgobfi5b");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '27', j: 2 }, { i: '27', j: 3 } ], css_id: 'tinytable_css_ol4obphp6dbayl95pcbh',}, 
-          { positions: [ { i: '22', j: 2 }, { i: '22', j: 3 } ], css_id: 'tinytable_css_mb7zx9dh6f4spya7o2ot',}, 
-          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '10', j: 2 }, { i: '11', j: 2 }, { i: '12', j: 2 }, { i: '13', j: 2 }, { i: '14', j: 2 }, { i: '15', j: 2 }, { i: '16', j: 2 }, { i: '17', j: 2 }, { i: '18', j: 2 }, { i: '19', j: 2 }, { i: '20', j: 2 }, { i: '21', j: 2 }, { i: '23', j: 2 }, { i: '24', j: 2 }, { i: '25', j: 2 }, { i: '26', j: 2 }, { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '3', j: 3 }, { i: '4', j: 3 }, { i: '5', j: 3 }, { i: '6', j: 3 }, { i: '7', j: 3 }, { i: '8', j: 3 }, { i: '9', j: 3 }, { i: '10', j: 3 }, { i: '11', j: 3 }, { i: '12', j: 3 }, { i: '13', j: 3 }, { i: '14', j: 3 }, { i: '15', j: 3 }, { i: '16', j: 3 }, { i: '17', j: 3 }, { i: '18', j: 3 }, { i: '19', j: 3 }, { i: '20', j: 3 }, { i: '21', j: 3 }, { i: '23', j: 3 }, { i: '24', j: 3 }, { i: '25', j: 3 }, { i: '26', j: 3 } ], css_id: 'tinytable_css_0pewnqu079zhtom94imn',}, 
-          { positions: [ { i: '0', j: 2 }, { i: '0', j: 3 } ], css_id: 'tinytable_css_dqhx907yjgw98pvxfn5o',}, 
-          { positions: [ { i: '27', j: 1 } ], css_id: 'tinytable_css_tzbgty2fkje8v8aueg1l',}, 
-          { positions: [ { i: '22', j: 1 } ], css_id: 'tinytable_css_vlh01zgho9u093mipyi8',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '14', j: 1 }, { i: '15', j: 1 }, { i: '16', j: 1 }, { i: '17', j: 1 }, { i: '18', j: 1 }, { i: '19', j: 1 }, { i: '20', j: 1 }, { i: '21', j: 1 }, { i: '23', j: 1 }, { i: '24', j: 1 }, { i: '25', j: 1 }, { i: '26', j: 1 } ], css_id: 'tinytable_css_614e7kfk7nksv6gw3may',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_6xwm4zekm11f68r3bmb7',}, 
+          { positions: [ { i: '27', j: 2 }, { i: '27', j: 3 } ], css_id: 'tinytable_css_45bczh6915w40yy1dx18',}, 
+          { positions: [ { i: '22', j: 2 }, { i: '22', j: 3 } ], css_id: 'tinytable_css_y6n0hakyau972zq3z7o4',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '10', j: 2 }, { i: '11', j: 2 }, { i: '12', j: 2 }, { i: '13', j: 2 }, { i: '14', j: 2 }, { i: '15', j: 2 }, { i: '16', j: 2 }, { i: '17', j: 2 }, { i: '18', j: 2 }, { i: '19', j: 2 }, { i: '20', j: 2 }, { i: '21', j: 2 }, { i: '23', j: 2 }, { i: '24', j: 2 }, { i: '25', j: 2 }, { i: '26', j: 2 }, { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '3', j: 3 }, { i: '4', j: 3 }, { i: '5', j: 3 }, { i: '6', j: 3 }, { i: '7', j: 3 }, { i: '8', j: 3 }, { i: '9', j: 3 }, { i: '10', j: 3 }, { i: '11', j: 3 }, { i: '12', j: 3 }, { i: '13', j: 3 }, { i: '14', j: 3 }, { i: '15', j: 3 }, { i: '16', j: 3 }, { i: '17', j: 3 }, { i: '18', j: 3 }, { i: '19', j: 3 }, { i: '20', j: 3 }, { i: '21', j: 3 }, { i: '23', j: 3 }, { i: '24', j: 3 }, { i: '25', j: 3 }, { i: '26', j: 3 } ], css_id: 'tinytable_css_bzorlzk85xvudq6gqgo7',}, 
+          { positions: [ { i: '0', j: 2 }, { i: '0', j: 3 } ], css_id: 'tinytable_css_9st5jok9eku7r916tplx',}, 
+          { positions: [ { i: '27', j: 1 } ], css_id: 'tinytable_css_0hl7r3lmy0jcris84fht',}, 
+          { positions: [ { i: '22', j: 1 } ], css_id: 'tinytable_css_s232dqvkp1yaditcup2z',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '14', j: 1 }, { i: '15', j: 1 }, { i: '16', j: 1 }, { i: '17', j: 1 }, { i: '18', j: 1 }, { i: '19', j: 1 }, { i: '20', j: 1 }, { i: '21', j: 1 }, { i: '23', j: 1 }, { i: '24', j: 1 }, { i: '25', j: 1 }, { i: '26', j: 1 } ], css_id: 'tinytable_css_rvo3g354ury1qrgzb993',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_7s9i9dteqnz9dnlx5sg6',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_ych91qnayueovsu6mawz.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_g71i0eswlq75rgobfi5b.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -2789,17 +2353,17 @@ Table&nbsp;1.5: Régressions logistiques simples: opposition à l’augmentation
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_ych91qnayueovsu6mawz td.tinytable_css_ol4obphp6dbayl95pcbh, #tinytable_ych91qnayueovsu6mawz th.tinytable_css_ol4obphp6dbayl95pcbh {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_ych91qnayueovsu6mawz td.tinytable_css_mb7zx9dh6f4spya7o2ot, #tinytable_ych91qnayueovsu6mawz th.tinytable_css_mb7zx9dh6f4spya7o2ot {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_ych91qnayueovsu6mawz td.tinytable_css_0pewnqu079zhtom94imn, #tinytable_ych91qnayueovsu6mawz th.tinytable_css_0pewnqu079zhtom94imn { text-align: center }
-    #tinytable_ych91qnayueovsu6mawz td.tinytable_css_dqhx907yjgw98pvxfn5o, #tinytable_ych91qnayueovsu6mawz th.tinytable_css_dqhx907yjgw98pvxfn5o {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_ych91qnayueovsu6mawz td.tinytable_css_tzbgty2fkje8v8aueg1l, #tinytable_ych91qnayueovsu6mawz th.tinytable_css_tzbgty2fkje8v8aueg1l {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_ych91qnayueovsu6mawz td.tinytable_css_vlh01zgho9u093mipyi8, #tinytable_ych91qnayueovsu6mawz th.tinytable_css_vlh01zgho9u093mipyi8 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_ych91qnayueovsu6mawz td.tinytable_css_614e7kfk7nksv6gw3may, #tinytable_ych91qnayueovsu6mawz th.tinytable_css_614e7kfk7nksv6gw3may { text-align: left }
-    #tinytable_ych91qnayueovsu6mawz td.tinytable_css_6xwm4zekm11f68r3bmb7, #tinytable_ych91qnayueovsu6mawz th.tinytable_css_6xwm4zekm11f68r3bmb7 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_g71i0eswlq75rgobfi5b td.tinytable_css_45bczh6915w40yy1dx18, #tinytable_g71i0eswlq75rgobfi5b th.tinytable_css_45bczh6915w40yy1dx18 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_g71i0eswlq75rgobfi5b td.tinytable_css_y6n0hakyau972zq3z7o4, #tinytable_g71i0eswlq75rgobfi5b th.tinytable_css_y6n0hakyau972zq3z7o4 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_g71i0eswlq75rgobfi5b td.tinytable_css_bzorlzk85xvudq6gqgo7, #tinytable_g71i0eswlq75rgobfi5b th.tinytable_css_bzorlzk85xvudq6gqgo7 { text-align: center }
+    #tinytable_g71i0eswlq75rgobfi5b td.tinytable_css_9st5jok9eku7r916tplx, #tinytable_g71i0eswlq75rgobfi5b th.tinytable_css_9st5jok9eku7r916tplx {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_g71i0eswlq75rgobfi5b td.tinytable_css_0hl7r3lmy0jcris84fht, #tinytable_g71i0eswlq75rgobfi5b th.tinytable_css_0hl7r3lmy0jcris84fht {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_g71i0eswlq75rgobfi5b td.tinytable_css_s232dqvkp1yaditcup2z, #tinytable_g71i0eswlq75rgobfi5b th.tinytable_css_s232dqvkp1yaditcup2z {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_g71i0eswlq75rgobfi5b td.tinytable_css_rvo3g354ury1qrgzb993, #tinytable_g71i0eswlq75rgobfi5b th.tinytable_css_rvo3g354ury1qrgzb993 { text-align: left }
+    #tinytable_g71i0eswlq75rgobfi5b td.tinytable_css_7s9i9dteqnz9dnlx5sg6, #tinytable_g71i0eswlq75rgobfi5b th.tinytable_css_7s9i9dteqnz9dnlx5sg6 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_ych91qnayueovsu6mawz" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_g71i0eswlq75rgobfi5b" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -2955,30 +2519,12 @@ Table&nbsp;1.5: Régressions logistiques simples: opposition à l’augmentation
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-check1</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Vérification des hypothèses du modèle logit: augmentation de la franchise minimale"</span></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(performance)</span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplotify)</span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>checkmodel1 <span class="ot">&lt;-</span> </span>
-<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="fu">check_model</span>(model1_step2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Cannot simulate residuals for models of class `glm`. Please try
-  `check_model(..., residual_type = "normal")` instead.</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>checkmodel1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
 <p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>plot <span class="ot">=</span> <span class="fu">plot</span>(checkmodel1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Ignoring unknown labels:
-• size : ""
-• alpha : ""</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -2987,24 +2533,8 @@ Table&nbsp;1.5: Régressions logistiques simples: opposition à l’augmentation
 </figure>
 </div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ggsave("diagnosticfranchise.png", plot, width = 15, height = 10)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-check2</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Vérification des hypothèse du modèle logit: initiative pour l'allègement des primes"</span></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>checkmodel2 <span class="ot">&lt;-</span> </span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="fu">check_model</span>(best_model_glm2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Cannot simulate residuals for models of class `glm`. Please try
-  `check_model(..., residual_type = "normal")` instead.</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>plot <span class="ot">=</span> <span class="fu">plot</span>(checkmodel2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Ignoring unknown labels:
-• size : ""
-• alpha : ""</code></pre>
-</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -3012,7 +2542,6 @@ Table&nbsp;1.5: Régressions logistiques simples: opposition à l’augmentation
 </figure>
 </div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ggsave("diagnosticprimes.png", plot, width = 15, height = 10)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 

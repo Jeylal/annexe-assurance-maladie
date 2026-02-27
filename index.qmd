@@ -6,6 +6,10 @@ format:
     theme: flatly
     toc: true
   pdf: default
+execute: 
+  echo: false
+  message: false
+  warning: false
 ---
 
 # Annexe
@@ -52,6 +56,8 @@ swissvotes %>%
 ```
 
 ## Matériel supplémentaire
+
+![Figure 1.2.- Primes standards de l'assurance-maladie obligatoire en Suisse en 2025 (en CHF). Source: OFS](primes_standards_cantons.png)
 
 ```{r}
 #| echo: false
@@ -563,8 +569,6 @@ selects2023panel2 %>%
 
 ```
 
-
-
 ```{r}
 
 #| label: tbl-descriptivemodel2
@@ -592,7 +596,6 @@ selects2023panelW4_2 %>%
 likertW4
 ```
 
-
 ```{r tables reg logit}
 #| tbl-cap: "Régressions logit (log(odd))"
 #| label: tbl-reglogit
@@ -601,11 +604,9 @@ library(modelsummary)
 modelsummary(list("Augmentation franchise minimale" = model1_step2), stars = T)
 ```
 
-
 ```{r}
 modelsummary(list("Initiative pour l'allègement des primes" = best_model_glm2), stars = T)
 ```
-
 
 ```{r glmer canton}
 
@@ -636,7 +637,6 @@ glmer_canton_primes = glmer(data = selects2023panelW4_2,
 modelsummary(models = list("Augmentation franchise minimale" = glmer_canton_primes, "Initiative pour l'allègement des primes" = glmer_canton_franchise))
 ```
 
-
 ```{r}
 #| tbl-cap: "Régressions logistiques simples: opposition à l'augmentation de la franchise et vote pour l'allègement des primes sur les catégories socio-professionnelles ESEG (Log(Odd))"
 #| label: tbl-reg2
@@ -651,7 +651,6 @@ glm_eseg_primes = glm(data = selects2023panelW4_2,
 
 modelsummary(list("Augmentation franchise minimale" = glm_eseg_franchise, "Initiative pour l'allègement des primes" = glm_eseg_primes), stars = T)
 ```
-
 
 ```{r}
 
