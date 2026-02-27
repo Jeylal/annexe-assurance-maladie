@@ -1,19 +1,17 @@
 project:
-  type: manuscript
+  type: book
 
+book:
+  title: "L'assurance-maladie obligatoire suisse dans l'impasse. Une analyse du compromis socio-politique derrière la Loi fédérale sur l’assurance-maladie (LAMal)"
+  subtitle: "Annexe"
+  author: "Celâl Güney"
+  date: "27.02.2026"
+  chapters:
+    - index.qmd
 
-
-execute:
-  freeze: auto
 
 format:
   html:
-    manuscript:
-        article: index.qmd
-  docx: default
-  jats: default
-  agu-pdf: default
-
-exclude:
-  - index-meca.zip
-
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt

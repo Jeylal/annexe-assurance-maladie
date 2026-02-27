@@ -7,8 +7,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Celâl Güney">
-<meta name="author" content="Gaia Valenti">
-<meta name="dcterms.date" content="2026-02-27">
 
 <title>L’assurance-maladie obligatoire suisse dans l’impasse. Une analyse du compromis socio-politique derrière la Loi fédérale sur l’assurance-maladie (LAMal)</title>
 <style>
@@ -23,10 +21,51 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -37,10 +76,34 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4d7f0bce1131f3e5f9547cd857cfbfc8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-2641b481724464e61c86985d8c912b6f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -72,74 +135,55 @@ window.Quarto = {
 };
 </script>
 
-<meta name="citation_title" content="L&amp;amp;#039;assurance-maladie obligatoire suisse dans l'impasse. Une analyse du compromis socio-politique derrière la Loi fédérale sur l’assurance-maladie (LAMal)">
-<meta name="citation_author" content="Celâl Güney">
-<meta name="citation_author" content="Gaia Valenti">
-<meta name="citation_publication_date" content="2026-02-27">
-<meta name="citation_cover_date" content="2026-02-27">
-<meta name="citation_year" content="2026">
-<meta name="citation_online_date" content="2026-02-27">
-<meta name="citation_language" content="en">
-<meta name="citation_reference" content="citation_title=Strategies for the development of volcanic hazard maps in monogenetic volcanic fields: The example of La Palma (Canary Islands);,citation_author=José Marrero;,citation_author=Alicia García;,citation_author=Manuel Berrocoso;,citation_author=Ángeles Llinares;,citation_author=Antonio Rodríguez-Losada;,citation_author=R. Ortiz;,citation_publication_date=2019-07;,citation_cover_date=2019-07;,citation_year=2019;,citation_doi=10.1186/s13617-019-0085-5;,citation_volume=8;,citation_journal_title=Journal of Applied Volcanology;">
 </head>
 
-<body class="quarto-light">
+<body class="nav-sidebar floating quarto-light">
 
-<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">L’assurance-maladie obligatoire suisse dans l’impasse. Une analyse du compromis socio-politique derrière la Loi fédérale sur l’assurance-maladie (LAMal)</h1>
-          </div>
-
-    
-    <div class="quarto-title-meta-container">
-      <div class="quarto-title-meta-column-start">
-            <div class="quarto-title-meta-author">
-          <div class="quarto-title-meta-heading">Authors</div>
-          <div class="quarto-title-meta-heading">Affiliations</div>
-          
-                <div class="quarto-title-meta-contents">
-            <p class="author">Celâl Güney <a href="mailto:celal.gueney@unige.ch" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0009-0008-2601-030X" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
-          </div>
-                <div class="quarto-title-meta-contents">
-                    <p class="affiliation">
-                        unige
-                      </p>
-                  </div>
-                      <div class="quarto-title-meta-contents">
-            <p class="author">Gaia Valenti </p>
-          </div>
-                <div class="quarto-title-meta-contents">
-                    <p class="affiliation">
-                        unige
-                      </p>
-                  </div>
-                    </div>
-        
-        <div class="quarto-title-meta">
-
-                      
-                <div>
-            <div class="quarto-title-meta-heading">Published</div>
-            <div class="quarto-title-meta-contents">
-              <p class="date">February 27, 2026</p>
-            </div>
-          </div>
-          
-                
-              </div>
-      </div>
-      <div class="quarto-title-meta-column-end quarto-other-formats-target">
-      <div class="quarto-alternate-formats"><div class="quarto-title-meta-heading">Other Formats</div><div class="quarto-title-meta-contents"><p><a href="index.docx"><i class="bi bi-file-word"></i>MS Word</a></p></div><div class="quarto-title-meta-contents"><p><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF (agu)</a></p></div><div class="quarto-title-meta-contents"><p><a href="index-meca.zip" data-meca-link="true"><i class="bi bi-archive"></i>MECA Bundle</a></p></div></div></div>
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">L’assurance-maladie obligatoire suisse dans l’impasse. Une analyse du compromis socio-politique derrière la Loi fédérale sur l’assurance-maladie (LAMal)</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
     </div>
-
-
-
-    <div class="quarto-other-links-text-target">
-    </div>  </div>
-</header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
-<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
-  <nav id="TOC" role="doc-toc" class="toc-active">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">L’assurance-maladie obligatoire suisse dans l’impasse. Une analyse du compromis socio-politique derrière la Loi fédérale sur l’assurance-maladie (LAMal)</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">L’assurance-maladie obligatoire suisse dans l’impasse. Une analyse du compromis socio-politique derrière la Loi fédérale sur l’assurance-maladie (LAMal)</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
@@ -149,15 +193,41 @@ window.Quarto = {
   <li><a href="#matériel-supplémentaire" id="toc-matériel-supplémentaire" class="nav-link" data-scroll-target="#matériel-supplémentaire"><span class="header-section-number">1.2</span> Matériel supplémentaire</a></li>
   </ul></li>
   </ul>
-<div class="quarto-alternate-notebooks"><h2>Notebooks</h2><ul><li><a href="index-preview.html"><i class="bi bi-journal-code"></i>Article Notebook</a></li></ul></div></nav>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">L’assurance-maladie obligatoire suisse dans l’impasse. Une analyse du compromis socio-politique derrière la Loi fédérale sur l’assurance-maladie (LAMal)</h1>
+<p class="subtitle lead">Annexe</p>
 </div>
-<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-</div>
-<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Celâl Güney </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Invalid Date</p>
+    </div>
+  </div>
   
+    
+  </div>
+  
+
+
+</header>
 
 
 <section id="annexe" class="level1" data-number="1">
@@ -167,33 +237,53 @@ window.Quarto = {
 <p>La spécification des modèles présentés dans la section 4 a pour objectif de reproduire une analyse néoréaliste des facteurs influençant les attentes sociales. Les variables dépendantes sont binarisées afin de conduire des estimations de modèles logistiques binaires en utilisant l’estimation du maximum de vraisemblance. La variable d’opinion sur l’augmentation de la franchise minimale de l’assurance-maladie de base est construite sur une échelle Likert de 1 (fortement contre) à 5 (fortement pour). Nous avons créé une variable dichotomique pour les deux premières catégories (fortement contre et contre). Pour le choix du vote pour l’initiative d’allègement des primes, nous avons dichotomisé en binarisant le vote en faveur de l’initiative. Les principales variables explicatives que nous avons considérées sont un indice de classe sociale mesurée par la classification européenne des groupes socioéconomiques (ESEG), le revenu mensuel brut du ménage, à partir duquel nous calculons le niveau de revenu par décile, ainsi qu’une batterie d’indicateurs socio-démographiques (âge, langue, cantons, genre) et idéologiques (auto-positionnement gauche-droite, vote, probabilité de vote pour les principaux partis politiques, opinions sur des sujets économiques et identitaires). Pour chacune de nos deux variables dépendantes, nous avons procédé à une sélection de modèle pas à pas descendante avec le critère d’information d’Akaike (AIC). Cette procédure a abouti au modèle suivant pour l’opposition à l’augmentation de la franchise minimale:</p>
 <p><span id="eq-1"><span class="math display">\[
 P(y_i = 1) = logit^{-1}(\beta_0 + \beta_{d}D_i + \beta X_i + \gamma_p P_i + \eta_o O_i + \epsilon_i)
-\tag{1}\]</span></span></p>
+\tag{1.1}\]</span></span></p>
 <p>Avec <span class="math inline">\(P(y_i = 1)\)</span> la probabilité de l’individu <span class="math inline">\(i\)</span> d’être contre l’augmentation de la franchise minimale, <span class="math inline">\(D_i\)</span> le niveau de décile auquel appartient l’individu <span class="math inline">\(i\)</span>, <span class="math inline">\(X_i\)</span> un vecteur de caractéristiques individuelles socio-démographique (âge, genre, langue), <span class="math inline">\(P_i\)</span> un vecteur de variable sur la probabilité de voter pour certains partis politiques suisses (Le Centre, le Parti Socialiste, les Verts et les Verts Libéraux) sur une échelle de 0 à 10, et <span class="math inline">\(O_i\)</span> l’opinion sur une série d’enjeux comme l’intégration européenne, le salaire minimum ou encore les dépenses sociales. <span class="math inline">\(\epsilon_i\)</span> est le terme d’erreur. De manière surprenante, la variable pour les groupes socio-économiques ESEG n’a pas été retenue par la procédure de sélection, ce qui implique que la classe sociale telle que mesurée par l’indice ESEG ne semble pas jouer un rôle déterminant par rapport au niveau de revenu et aux autres variables de contrôle Comme le schéma de classe ESEG est une variable importante pour notre analyse, nous considérons quand même les résultats d’une régression simple de nos deux variables dépendantes sur les catégories socio-professionnelles ESEG (résultats disponibles dans l’annexe). Encore plus étonnant, la variable contrôlant pour les cantons n’a pas non plus été retenue, ce qui suggère que l’effet d’appartenance à un canton est négligeable. Le coefficient de corrélation interclasse (ICC) calculé à partir d’un modèle multiniveau avec les cantons en tant que niveau confirme que les variations entre cantons sont faibles (voir annexe). Le modèle pour le vote en faveur de l’initiative pour l’allègement des primes prend une forme similaire à (1), avec quelques différences au niveau des variables retenues car certaines d’entre elles n’étaient pas disponible dans la quatrième vague. Comme pour le premier modèle, le schéma de classe ESEG n’a pas été retenu par la procédure de sélection, ni le canton de résidence.</p>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>swissvotes <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">"data/swissvotes.csv"</span>, </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">delim =</span> <span class="st">";"</span>, <span class="at">escape_double =</span> <span class="cn">FALSE</span>, <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">d1e3 =</span> <span class="fu">col_double</span>()), </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">trim_ws =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>swissvotes <span class="sc">%&gt;%</span> </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(d1e3 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"10.24"</span>, <span class="st">"10.11"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(datum, titel_kurz_f, annahme, <span class="st">`</span><span class="at">volkja-proz</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">Date =</span> <span class="st">"datum"</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">Votation =</span> <span class="st">"titel_kurz_f"</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Résultat</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"annahme"</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">% Oui</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"volkja-proz"</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div id="tbl-votations" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-votations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Votations en lien avec le système de santé en Suisse. Source: Swissvotes
+Table&nbsp;1.1: Votations en lien avec le système de santé en Suisse. Source: Swissvotes
 </figcaption>
 <div aria-describedby="tbl-votations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="ahevshsuqp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ahevshsuqp table {
+<div id="rsukxnkcyf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#rsukxnkcyf table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ahevshsuqp thead, #ahevshsuqp tbody, #ahevshsuqp tfoot, #ahevshsuqp tr, #ahevshsuqp td, #ahevshsuqp th {
+#rsukxnkcyf thead, #rsukxnkcyf tbody, #rsukxnkcyf tfoot, #rsukxnkcyf tr, #rsukxnkcyf td, #rsukxnkcyf th {
   border-style: none;
 }
 
-#ahevshsuqp p {
+#rsukxnkcyf p {
   margin: 0;
   padding: 0;
 }
 
-#ahevshsuqp .gt_table {
+#rsukxnkcyf .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -219,12 +309,12 @@ Table&nbsp;1: Votations en lien avec le système de santé en Suisse. Source: Sw
   border-left-color: #D3D3D3;
 }
 
-#ahevshsuqp .gt_caption {
+#rsukxnkcyf .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ahevshsuqp .gt_title {
+#rsukxnkcyf .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -236,7 +326,7 @@ Table&nbsp;1: Votations en lien avec le système de santé en Suisse. Source: Sw
   border-bottom-width: 0;
 }
 
-#ahevshsuqp .gt_subtitle {
+#rsukxnkcyf .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -248,7 +338,7 @@ Table&nbsp;1: Votations en lien avec le système de santé en Suisse. Source: Sw
   border-top-width: 0;
 }
 
-#ahevshsuqp .gt_heading {
+#rsukxnkcyf .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -260,13 +350,13 @@ Table&nbsp;1: Votations en lien avec le système de santé en Suisse. Source: Sw
   border-right-color: #D3D3D3;
 }
 
-#ahevshsuqp .gt_bottom_border {
+#rsukxnkcyf .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ahevshsuqp .gt_col_headings {
+#rsukxnkcyf .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -281,7 +371,7 @@ Table&nbsp;1: Votations en lien avec le système de santé en Suisse. Source: Sw
   border-right-color: #D3D3D3;
 }
 
-#ahevshsuqp .gt_col_heading {
+#rsukxnkcyf .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -301,7 +391,7 @@ Table&nbsp;1: Votations en lien avec le système de santé en Suisse. Source: Sw
   overflow-x: hidden;
 }
 
-#ahevshsuqp .gt_column_spanner_outer {
+#rsukxnkcyf .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -313,15 +403,15 @@ Table&nbsp;1: Votations en lien avec le système de santé en Suisse. Source: Sw
   padding-right: 4px;
 }
 
-#ahevshsuqp .gt_column_spanner_outer:first-child {
+#rsukxnkcyf .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ahevshsuqp .gt_column_spanner_outer:last-child {
+#rsukxnkcyf .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ahevshsuqp .gt_column_spanner {
+#rsukxnkcyf .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -333,11 +423,11 @@ Table&nbsp;1: Votations en lien avec le système de santé en Suisse. Source: Sw
   width: 100%;
 }
 
-#ahevshsuqp .gt_spanner_row {
+#rsukxnkcyf .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ahevshsuqp .gt_group_heading {
+#rsukxnkcyf .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -363,7 +453,7 @@ Table&nbsp;1: Votations en lien avec le système de santé en Suisse. Source: Sw
   text-align: left;
 }
 
-#ahevshsuqp .gt_empty_group_heading {
+#rsukxnkcyf .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -378,15 +468,15 @@ Table&nbsp;1: Votations en lien avec le système de santé en Suisse. Source: Sw
   vertical-align: middle;
 }
 
-#ahevshsuqp .gt_from_md > :first-child {
+#rsukxnkcyf .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ahevshsuqp .gt_from_md > :last-child {
+#rsukxnkcyf .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ahevshsuqp .gt_row {
+#rsukxnkcyf .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -405,7 +495,7 @@ Table&nbsp;1: Votations en lien avec le système de santé en Suisse. Source: Sw
   overflow-x: hidden;
 }
 
-#ahevshsuqp .gt_stub {
+#rsukxnkcyf .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -418,7 +508,7 @@ Table&nbsp;1: Votations en lien avec le système de santé en Suisse. Source: Sw
   padding-right: 5px;
 }
 
-#ahevshsuqp .gt_stub_row_group {
+#rsukxnkcyf .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -432,15 +522,15 @@ Table&nbsp;1: Votations en lien avec le système de santé en Suisse. Source: Sw
   vertical-align: top;
 }
 
-#ahevshsuqp .gt_row_group_first td {
+#rsukxnkcyf .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ahevshsuqp .gt_row_group_first th {
+#rsukxnkcyf .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ahevshsuqp .gt_summary_row {
+#rsukxnkcyf .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -450,16 +540,16 @@ Table&nbsp;1: Votations en lien avec le système de santé en Suisse. Source: Sw
   padding-right: 5px;
 }
 
-#ahevshsuqp .gt_first_summary_row {
+#rsukxnkcyf .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ahevshsuqp .gt_first_summary_row.thick {
+#rsukxnkcyf .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ahevshsuqp .gt_last_summary_row {
+#rsukxnkcyf .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -469,7 +559,7 @@ Table&nbsp;1: Votations en lien avec le système de santé en Suisse. Source: Sw
   border-bottom-color: #D3D3D3;
 }
 
-#ahevshsuqp .gt_grand_summary_row {
+#rsukxnkcyf .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -479,7 +569,7 @@ Table&nbsp;1: Votations en lien avec le système de santé en Suisse. Source: Sw
   padding-right: 5px;
 }
 
-#ahevshsuqp .gt_first_grand_summary_row {
+#rsukxnkcyf .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -489,7 +579,7 @@ Table&nbsp;1: Votations en lien avec le système de santé en Suisse. Source: Sw
   border-top-color: #D3D3D3;
 }
 
-#ahevshsuqp .gt_last_grand_summary_row_top {
+#rsukxnkcyf .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -499,11 +589,11 @@ Table&nbsp;1: Votations en lien avec le système de santé en Suisse. Source: Sw
   border-bottom-color: #D3D3D3;
 }
 
-#ahevshsuqp .gt_striped {
+#rsukxnkcyf .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ahevshsuqp .gt_table_body {
+#rsukxnkcyf .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -512,7 +602,7 @@ Table&nbsp;1: Votations en lien avec le système de santé en Suisse. Source: Sw
   border-bottom-color: #D3D3D3;
 }
 
-#ahevshsuqp .gt_footnotes {
+#rsukxnkcyf .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -526,7 +616,7 @@ Table&nbsp;1: Votations en lien avec le système de santé en Suisse. Source: Sw
   border-right-color: #D3D3D3;
 }
 
-#ahevshsuqp .gt_footnote {
+#rsukxnkcyf .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -535,7 +625,7 @@ Table&nbsp;1: Votations en lien avec le système de santé en Suisse. Source: Sw
   padding-right: 5px;
 }
 
-#ahevshsuqp .gt_sourcenotes {
+#rsukxnkcyf .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -549,7 +639,7 @@ Table&nbsp;1: Votations en lien avec le système de santé en Suisse. Source: Sw
   border-right-color: #D3D3D3;
 }
 
-#ahevshsuqp .gt_sourcenote {
+#rsukxnkcyf .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -557,72 +647,72 @@ Table&nbsp;1: Votations en lien avec le système de santé en Suisse. Source: Sw
   padding-right: 5px;
 }
 
-#ahevshsuqp .gt_left {
+#rsukxnkcyf .gt_left {
   text-align: left;
 }
 
-#ahevshsuqp .gt_center {
+#rsukxnkcyf .gt_center {
   text-align: center;
 }
 
-#ahevshsuqp .gt_right {
+#rsukxnkcyf .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ahevshsuqp .gt_font_normal {
+#rsukxnkcyf .gt_font_normal {
   font-weight: normal;
 }
 
-#ahevshsuqp .gt_font_bold {
+#rsukxnkcyf .gt_font_bold {
   font-weight: bold;
 }
 
-#ahevshsuqp .gt_font_italic {
+#rsukxnkcyf .gt_font_italic {
   font-style: italic;
 }
 
-#ahevshsuqp .gt_super {
+#rsukxnkcyf .gt_super {
   font-size: 65%;
 }
 
-#ahevshsuqp .gt_footnote_marks {
+#rsukxnkcyf .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ahevshsuqp .gt_asterisk {
+#rsukxnkcyf .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ahevshsuqp .gt_indent_1 {
+#rsukxnkcyf .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ahevshsuqp .gt_indent_2 {
+#rsukxnkcyf .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ahevshsuqp .gt_indent_3 {
+#rsukxnkcyf .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ahevshsuqp .gt_indent_4 {
+#rsukxnkcyf .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ahevshsuqp .gt_indent_5 {
+#rsukxnkcyf .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ahevshsuqp .katex-display {
+#rsukxnkcyf .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ahevshsuqp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#rsukxnkcyf div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -825,15 +915,336 @@ Table&nbsp;1: Votations en lien avec le système de santé en Suisse. Source: Sw
 </div>
 </figure>
 </div>
-<a class="quarto-notebook-link" id="nblink-1" href="index-preview.html">Source: Article Notebook</a></div>
+</div>
 </section>
 <section id="matériel-supplémentaire" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="matériel-supplémentaire"><span class="header-section-number">1.2</span> Matériel supplémentaire</h2>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(marginaleffects)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjlabelled)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DIGCLASS)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># function to recode party satisfaction variables to put "don't know" as middle value</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>recode_party_satisfaction <span class="ot">=</span> <span class="cf">function</span>(var){</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  new_var <span class="ot">=</span> <span class="fu">case_when</span>(</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    var <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    var <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="dv">2</span>, </span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    var <span class="sc">==</span> <span class="dv">8</span> <span class="sc">~</span> <span class="dv">3</span>, </span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    var <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="dv">4</span>,</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    var <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="dv">5</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>selects2023panelW4 <span class="ot">&lt;-</span>  <span class="fu">read_sav</span>(<span class="st">"data/selects2023panelW4/data/2626_Selects2023_Panel_Data_v2.0.sav"</span>)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>selects2023panelW4<span class="sc">$</span>isco08 <span class="ot">=</span> selects2023panelW4<span class="sc">$</span>W1_4_f21601_2dig<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>selects2023panelW4_2 <span class="ot">=</span> selects2023panelW4  <span class="sc">%&gt;%</span> </span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">vote_choice =</span> <span class="st">"W4_f10851main6"</span>,</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">feelings_udc =</span> <span class="st">'W4_f14177a'</span>,</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">feelings_ps =</span> <span class="st">'W4_f14177b'</span>,</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">feelings_centre =</span> <span class="st">'W4_f14177c'</span>,</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">feelings_plr =</span> <span class="st">'W4_f14177d'</span>,</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">feelings_verts =</span> <span class="st">'W4_f14177e'</span>,</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">feelings_vertslib =</span> <span class="st">'W4_f14177f'</span>,</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">op_gender_equality =</span> <span class="st">'W4_f15475'</span>,</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">op_state_intervention =</span> <span class="st">'W4_f15435'</span>, <span class="co"># 5 = for more competition</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">op_2many_worries_abt_env_vs_prices =</span> <span class="st">'W4_f15478'</span>,</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">op_min_wage =</span> <span class="st">'W4_f15815'</span>, <span class="co"># 4 = strongly in favor</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">op_incr_retirement_age =</span> <span class="st">'W4_f15811'</span>,</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">op_foreigners_votingrights =</span> <span class="st">'W4_f15816'</span>,</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">op_rights_samesex_couples =</span> <span class="st">'W4_f15817'</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">income =</span> <span class="fu">case_when</span>(</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">1</span>  <span class="sc">~</span> (<span class="dv">0</span><span class="sc">+</span><span class="dv">2000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">2</span>  <span class="sc">~</span> (<span class="dv">2001</span><span class="sc">+</span><span class="dv">3000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">3</span>  <span class="sc">~</span> (<span class="dv">3001</span><span class="sc">+</span><span class="dv">4000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">4</span>  <span class="sc">~</span> (<span class="dv">4001</span><span class="sc">+</span><span class="dv">5000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">5</span>  <span class="sc">~</span> (<span class="dv">5001</span><span class="sc">+</span><span class="dv">6000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">6</span>  <span class="sc">~</span> (<span class="dv">6001</span><span class="sc">+</span><span class="dv">7000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">7</span>  <span class="sc">~</span> (<span class="dv">7001</span><span class="sc">+</span><span class="dv">8000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">8</span>  <span class="sc">~</span> (<span class="dv">8001</span><span class="sc">+</span><span class="dv">9000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">9</span>  <span class="sc">~</span> (<span class="dv">9001</span><span class="sc">+</span><span class="dv">10000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">10</span> <span class="sc">~</span> (<span class="dv">10001</span><span class="sc">+</span><span class="dv">11000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">11</span> <span class="sc">~</span> (<span class="dv">11001</span><span class="sc">+</span><span class="dv">12000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">12</span> <span class="sc">~</span> (<span class="dv">12001</span><span class="sc">+</span><span class="dv">13000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">13</span> <span class="sc">~</span> (<span class="dv">13001</span><span class="sc">+</span><span class="dv">14000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">14</span> <span class="sc">~</span> (<span class="dv">14001</span><span class="sc">+</span><span class="dv">15000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">15</span> <span class="sc">~</span> (<span class="dv">15001</span><span class="sc">+</span><span class="dv">16000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">16</span> <span class="sc">~</span> (<span class="dv">16001</span><span class="sc">+</span><span class="dv">17000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">17</span> <span class="sc">~</span> (<span class="dv">17001</span><span class="sc">+</span><span class="dv">18000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">18</span> <span class="sc">~</span> (<span class="dv">18001</span><span class="sc">+</span><span class="dv">19000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">19</span> <span class="sc">~</span> (<span class="dv">19001</span><span class="sc">+</span><span class="dv">20000</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>  W4_f28910 <span class="sc">==</span> <span class="dv">20</span> <span class="sc">~</span> <span class="dv">20001</span>         </span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>),</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a><span class="at">language =</span> <span class="fu">factor</span>(<span class="fu">as_label</span>(W4_langint)),</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a><span class="at">gender =</span> <span class="fu">factor</span>(<span class="fu">as_label</span>(W4_sex)),</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a><span class="at">rec_satisf_plr =</span> <span class="fu">recode_party_satisfaction</span>(W4_f13743a),</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="at">rec_satisf_centre =</span> <span class="fu">recode_party_satisfaction</span>(W4_f13743b),</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a><span class="at">rec_satisf_ps =</span> <span class="fu">recode_party_satisfaction</span>(W4_f13743c),</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a><span class="at">rec_satisf_udc =</span> <span class="fu">recode_party_satisfaction</span>(W4_f13743d),</span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a><span class="at">rec_satisf_verts =</span> <span class="fu">recode_party_satisfaction</span>(W4_f13743e),</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a><span class="at">income_decile =</span> <span class="fu">ntile</span>(income, <span class="at">n =</span> <span class="dv">10</span>),</span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a><span class="at">income_adjusted =</span> income<span class="sc">/</span><span class="fu">sqrt</span>(W4_f20500), <span class="co"># W4_f20500 = household size, including R</span></span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a><span class="at">income_adj_decile =</span> <span class="fu">ntile</span>(income_adjusted, <span class="at">n =</span> <span class="dv">10</span>),</span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a><span class="at">lr =</span> <span class="fu">if_else</span>(W4_f15200 <span class="sc">==</span> <span class="dv">98</span> <span class="sc">|</span> <span class="fu">is.na</span>(W4_f15200), <span class="cn">NA</span>, W4_f15200),</span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a><span class="at">education_ISCED =</span> <span class="fu">case_when</span>(</span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>  W4_f21310rec <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>) <span class="sc">~</span> <span class="dv">1</span>,  <span class="co"># No education, Primary = ISCED 1</span></span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>  W4_f21310rec <span class="sc">==</span> <span class="dv">3</span>        <span class="sc">~</span> <span class="dv">2</span>,  <span class="co"># Secondary school = ISCED 2</span></span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>  W4_f21310rec <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">5</span>) <span class="sc">~</span> <span class="dv">3</span>,  <span class="co"># Basic vocational training, apprenticeship = ISC4D 3</span></span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>  W4_f21310rec <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>) <span class="sc">~</span> <span class="dv">4</span>, <span class="co"># Upper secondary specialized, tra4e, vocational = ISCED 4 </span></span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>  W4_f21310rec <span class="sc">==</span> <span class="dv">9</span> <span class="sc">~</span> <span class="dv">5</span>,  <span class="co"># Matu = ISCED 5</span></span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>  W4_f21310rec <span class="sc">==</span> <span class="dv">10</span> <span class="sc">~</span> <span class="dv">5</span>,  <span class="co"># Higher vocational education with federal dip4oma = ISCED 5</span></span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>  W4_f21310rec <span class="sc">==</span> <span class="dv">11</span> <span class="sc">~</span> <span class="dv">6</span>,  <span class="co"># College of higher education = ISCED 6</span></span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>  W4_f21310rec <span class="sc">==</span> <span class="dv">12</span> <span class="sc">~</span> <span class="dv">6</span>,  <span class="co"># Uni of applied sciences = ISCED 6 (Ba4helor level)</span></span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>  W4_f21310rec <span class="sc">==</span> <span class="dv">13</span> <span class="sc">~</span> <span class="dv">7</span>,  <span class="co"># University / Federal Institute of Tec4nology = ISCED 7 (Master)</span></span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>  W4_f21310rec <span class="sc">==</span> <span class="dv">14</span> <span class="sc">~</span> <span class="cn">NA</span>   <span class="co"># other</span></span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>),</span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a><span class="at">public_sector =</span> <span class="fu">if_else</span>(W1_4_f21700 <span class="sc">==</span> <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a><span class="at">canton =</span> <span class="fu">as_character</span>(W4_canton_sample),</span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a><span class="at">langue =</span> <span class="fu">relevel</span>(<span class="fu">factor</span>(<span class="fu">as_character</span>(W4_langint)), <span class="at">ref =</span> <span class="st">"German"</span>),</span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a><span class="co">#isco08_4d = isco08_swap(W1_ISCO08prof_2dig, from = 2, to = 3),</span></span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a><span class="at">main_activity =</span> <span class="fu">case_when</span>(</span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>  <span class="co"># comme il s'agit de la 4eme vague, la question si la situation de travail a changé doit etre prise en compte, si W4_f21300 == 0, la situation n'a pas changé depuis vague 1 (W1)</span></span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>  W4_f21300 <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> W1_f21400 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">7</span>) <span class="sc">~</span> <span class="dv">1</span>, <span class="co"># working</span></span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>  W4_f21300 <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> W1_f21400 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">3</span>) <span class="sc">~</span> <span class="dv">2</span>, <span class="co"># in training/education</span></span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>  W4_f21300 <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> W1_f21400 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">6</span>) <span class="sc">~</span> <span class="dv">3</span>, <span class="co"># disability</span></span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>  W4_f21300 <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> W1_f21400 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">8</span>) <span class="sc">~</span> <span class="dv">4</span>, <span class="co"># no paid work</span></span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>  W4_f21300 <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> W1_f21400 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">5</span>) <span class="sc">~</span> <span class="dv">5</span>, <span class="co"># retired</span></span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a>  W4_f21300 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> W4_f21400 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">7</span>) <span class="sc">~</span> <span class="dv">1</span>, <span class="co"># working</span></span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a>  W4_f21300 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> W4_f21400 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">3</span>) <span class="sc">~</span> <span class="dv">2</span>, <span class="co"># in training/education</span></span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>  W4_f21300 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> W4_f21400 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">6</span>) <span class="sc">~</span> <span class="dv">3</span>, <span class="co"># disability</span></span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a>  W4_f21300 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> W4_f21400 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">8</span>) <span class="sc">~</span> <span class="dv">4</span>, <span class="co"># no paid work</span></span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>  W4_f21300 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> W4_f21400 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">5</span>) <span class="sc">~</span> <span class="dv">5</span> <span class="co"># retired</span></span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>),</span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a><span class="co"># Prise en compte du changement depuis W1, comme pour main_activity</span></span>
+<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a><span class="at">work_status =</span> <span class="fu">case_when</span>(</span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a>  W4_f21300 <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> W1_f21500 <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="dv">1</span>, <span class="co"># self-employed</span></span>
+<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a>  W4_f21300 <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> W1_f21500 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="sc">~</span> <span class="dv">0</span>, <span class="co"># employee</span></span>
+<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a>  W4_f21300 <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> <span class="fu">is.na</span>(W1_f21500) <span class="sc">~</span> <span class="dv">2</span>, <span class="co"># not employed</span></span>
+<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a>  W4_f21300 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> W4_f21500 <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="dv">1</span>, <span class="co"># self-employed</span></span>
+<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a>  W4_f21300 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> W4_f21500 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="sc">~</span> <span class="dv">0</span>, <span class="co"># employee</span></span>
+<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a>  W4_f21300 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> <span class="fu">is.na</span>(W4_f21500) <span class="sc">~</span> <span class="dv">2</span> <span class="co"># not employed</span></span>
+<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a>),</span>
+<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a><span class="at">main_activity2 =</span> <span class="fu">case_when</span>(</span>
+<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a>  W1_4_f21400 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">7</span>) <span class="sc">~</span> <span class="dv">1</span>, <span class="co"># working</span></span>
+<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a>  W1_4_f21400 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">3</span>) <span class="sc">~</span> <span class="dv">2</span>, <span class="co"># in training/education</span></span>
+<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a>  W1_4_f21400 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">6</span>) <span class="sc">~</span> <span class="dv">3</span>, <span class="co"># disability</span></span>
+<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a>  W1_4_f21400 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">8</span>) <span class="sc">~</span> <span class="dv">4</span>, <span class="co"># no paid work</span></span>
+<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a>  W1_4_f21400 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">5</span>) <span class="sc">~</span> <span class="dv">5</span> <span class="co"># retired</span></span>
+<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a>),</span>
+<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a><span class="at">work_status2 =</span> <span class="fu">case_when</span>(</span>
+<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a>  W1_4_f21500 <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="dv">1</span>, <span class="co"># self-employed</span></span>
+<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a>  W1_4_f21500 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="sc">~</span> <span class="dv">0</span>, <span class="co"># employee</span></span>
+<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a>  <span class="fu">is.na</span>(W1_4_f21500) <span class="sc">~</span> <span class="dv">2</span> <span class="co"># not employed</span></span>
+<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a>),</span>
+<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a><span class="at">eseg =</span> <span class="fu">isco08_to_eseg</span>(isco08, <span class="at">work_status =</span> work_status2, <span class="at">main_activity =</span> main_activity2, <span class="at">age =</span> W4_age, <span class="at">to_factor =</span> <span class="cn">FALSE</span>, <span class="at">type =</span> <span class="st">"two-digit"</span>, <span class="at">label =</span> <span class="cn">FALSE</span>),</span>
+<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a><span class="at">yes_premium_initiative =</span> <span class="fu">if_else</span>(W4_f10771a <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">1</span>,</span>
+<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a>                                 <span class="fu">if_else</span>(<span class="fu">is.na</span>(W4_f10771a), <span class="cn">NA</span>, <span class="dv">0</span>)),</span>
+<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a><span class="at">yes_biodiversity_initiative =</span>  <span class="fu">if_else</span>(W4_f10751a <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">1</span>,</span>
+<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a>                                 <span class="fu">if_else</span>(<span class="fu">is.na</span>(W4_f10751a), <span class="cn">NA</span>, <span class="dv">0</span>)),</span>
+<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a><span class="at">yes_pension_reform =</span> <span class="fu">if_else</span>(W4_f10751b <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">1</span>,</span>
+<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a>                                 <span class="fu">if_else</span>(<span class="fu">is.na</span>(W4_f10751b), <span class="cn">NA</span>, <span class="dv">0</span>)),</span>
+<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a><span class="at">yes_13th_pension_payment =</span> <span class="fu">if_else</span>(W4_f10791 <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">1</span>,</span>
+<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a>                                 <span class="fu">if_else</span>(<span class="fu">is.na</span>(W4_f10791), <span class="cn">NA</span>, <span class="dv">0</span>)),</span>
+<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! ISCO variable is not a character. Beware that numeric ISCO variables possibly contain lost data. See https://cimentadaj.github.io/DIGCLASS/articles/repairing_isco_input.html for more details. Converting to a character vector.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ℹ ISCO variable has occupations with digits less than 4. Converting to 4 digits.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>• Converted `200` to `0200`</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>• Converted `300` to `0300`</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>• Converted `100` to `0100`</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>selects2023panelW4_2 <span class="ot">=</span> selects2023panelW4_2 <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">eseg9 =</span> <span class="fu">case_when</span>(</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">1.1</span>, <span class="fl">1.2</span>, <span class="fl">1.3</span>, <span class="fl">1.4</span>) <span class="sc">~</span> <span class="st">"Managers"</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">2.1</span>, <span class="fl">2.2</span>, <span class="fl">2.3</span>, <span class="fl">2.4</span>, <span class="fl">2.5</span>) <span class="sc">~</span> <span class="st">"Professionals"</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">3.1</span>, <span class="fl">3.2</span>, <span class="fl">3.3</span>, <span class="fl">3.4</span>, <span class="fl">3.5</span>) <span class="sc">~</span> <span class="st">"Technicians and associated professionals employees"</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">4.1</span>, <span class="fl">4.2</span>, <span class="fl">4.3</span>) <span class="sc">~</span> <span class="st">"small entrepreneurs"</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">5.1</span>, <span class="fl">5.2</span>, <span class="fl">5.3</span>, <span class="fl">5.4</span>) <span class="sc">~</span> <span class="st">"Clerks and skilled service employees"</span>,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">6.1</span>, <span class="fl">6.2</span>, <span class="fl">6.3</span>, <span class="fl">6.4</span>, <span class="fl">6.5</span>) <span class="sc">~</span> <span class="st">"Skilled industrial employees"</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">7.1</span>, <span class="fl">7.2</span>, <span class="fl">7.3</span>, <span class="fl">7.4</span>) <span class="sc">~</span> <span class="st">"Lower status employees"</span>,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">8.8</span>) <span class="sc">~</span> <span class="st">"Retired"</span>,</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">9.1</span>) <span class="sc">~</span> <span class="st">"Student"</span>,</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">9.2</span>, <span class="fl">9.3</span>) <span class="sc">~</span> <span class="st">"Unemployed or disabled"</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>     ),</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>     <span class="at">eseg10 =</span> <span class="fu">case_when</span>(</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">1.1</span>, <span class="fl">1.2</span>, <span class="fl">1.3</span>, <span class="fl">1.4</span>) <span class="sc">~</span> <span class="st">"Managers"</span>,</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">2.1</span>, <span class="fl">2.2</span>, <span class="fl">2.4</span>, <span class="fl">2.5</span>) <span class="sc">~</span> <span class="st">"Professionals"</span>,</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">==</span> <span class="fl">2.3</span> <span class="sc">~</span> <span class="st">"Business and administration professionals"</span>,</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">3.1</span>, <span class="fl">3.2</span>, <span class="fl">3.3</span>, <span class="fl">3.4</span>, <span class="fl">3.5</span>) <span class="sc">~</span> <span class="st">"Technicians and associated professionals employees"</span>,</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">4.1</span>, <span class="fl">4.2</span>, <span class="fl">4.3</span>) <span class="sc">~</span> <span class="st">"small entrepreneurs"</span>,</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">5.1</span>, <span class="fl">5.2</span>, <span class="fl">5.3</span>, <span class="fl">5.4</span>) <span class="sc">~</span> <span class="st">"Clerks and skilled service employees"</span>,</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">6.1</span>, <span class="fl">6.2</span>, <span class="fl">6.3</span>, <span class="fl">6.4</span>, <span class="fl">6.5</span>) <span class="sc">~</span> <span class="st">"Skilled industrial employees"</span>,</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">7.1</span>, <span class="fl">7.2</span>, <span class="fl">7.3</span>, <span class="fl">7.4</span>) <span class="sc">~</span> <span class="st">"Lower status employees"</span>,</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">8.8</span>) <span class="sc">~</span> <span class="st">"Retired"</span>,</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">9.1</span>) <span class="sc">~</span> <span class="st">"Student"</span>,</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>       eseg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">9.2</span>, <span class="fl">9.3</span>) <span class="sc">~</span> <span class="st">"Unemployed or disabled"</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>     )</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>selects2023panelW4_2<span class="sc">$</span>eseg9 <span class="ot">=</span> <span class="fu">relevel</span>(<span class="fu">as.factor</span>(selects2023panelW4_2<span class="sc">$</span>eseg9), <span class="at">ref =</span> <span class="st">"Managers"</span>)</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>selects2023panelW4_2<span class="sc">$</span>eseg10 <span class="ot">=</span> <span class="fu">relevel</span>(<span class="fu">as.factor</span>(selects2023panelW4_2<span class="sc">$</span>eseg10), <span class="at">ref =</span> <span class="st">"Business and administration professionals"</span>)</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Schema de classe oesch</span></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="co"># W4_f21300: Has R's professional situation changed in the past 12 months (e.g. new job, retirement, unemployment)</span></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a><span class="co"># W1_4_f21500: R's current position at work, W1 updated with W4</span></span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a><span class="co"># W4_f21400: R's current working situation, if change in professional situation</span></span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a><span class="co"># W4_f21500: R's current position at work, if change in professional situation</span></span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a><span class="co"># W4_f21550: Number of persons employed at company, including R, if change in professional situation</span></span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a><span class="co"># W4_f21550_W1self: Asked to self-employed from W1 if no change in professional situation: number of persons employed at company, including R</span></span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>selects2023panelW4_2 <span class="ot">&lt;-</span> selects2023panelW4_2 <span class="sc">%&gt;%</span> </span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a>    <span class="at">self_employed =</span> <span class="fu">case_when</span>(</span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>      W1_4_f21500 <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="dv">1</span>, <span class="co"># self employed</span></span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>      W1_4_f21500 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="sc">~</span> <span class="dv">0</span> <span class="co"># employee</span></span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_employees =</span> <span class="fu">case_when</span>(</span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>      W4_f21300 <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> W4_f21550_W1self,</span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>      W4_f21300 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> W4_f21550</span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>    <span class="at">oesch8 =</span> <span class="fu">isco08_to_oesch</span>(W1_4_f21601_2dig<span class="sc">*</span><span class="dv">100</span>, <span class="at">self_employed =</span> self_employed, <span class="at">n_employees =</span> n_employees, <span class="at">n_classes =</span> <span class="dv">8</span>, <span class="at">to_factor =</span> T, <span class="at">label =</span> T)</span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! ISCO variable is not a character. Beware that numeric ISCO variables possibly contain lost data. See https://cimentadaj.github.io/DIGCLASS/articles/repairing_isco_input.html for more details. Converting to a character vector.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ℹ ISCO variable has occupations with digits less than 4. Converting to 4 digits.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>• Converted `200` to `0200`</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>• Converted `300` to `0300`</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>• Converted `100` to `0100`</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>selects2023panelW4_2<span class="sc">$</span>vote_choice <span class="ot">=</span> <span class="fu">factor</span>(<span class="fu">as_label</span>(selects2023panelW4_2<span class="sc">$</span>vote_choice))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Le chargement a nécessité le package : Matrix</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attachement du package : 'Matrix'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Les objets suivants sont masqués depuis 'package:tidyr':
+
+    expand, pack, unpack</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attachement du package : 'lme4'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>L'objet suivant est masqué depuis 'package:marginaleffects':
+
+    refit</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(marginaleffects)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>data_model_fit2 <span class="ot">=</span> selects2023panelW4_2 <span class="sc">%&gt;%</span> </span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(yes_premium_initiative, eseg10, income_adj_decile, education_ISCED, lr, op_state_intervention, op_2many_worries_abt_env_vs_prices, op_min_wage, op_incr_retirement_age, op_foreigners_votingrights, vote_choice, gender, W4_age, language, canton) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>model_glm1 <span class="ot">=</span> <span class="fu">glm</span>(<span class="at">data =</span> data_model_fit2,</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>                 yes_premium_initiative <span class="sc">~</span> income_adj_decile <span class="sc">+</span> education_ISCED <span class="sc">+</span> eseg10 <span class="sc">+</span> lr <span class="sc">+</span> op_state_intervention <span class="sc">+</span> op_2many_worries_abt_env_vs_prices <span class="sc">+</span> op_min_wage <span class="sc">+</span> op_incr_retirement_age <span class="sc">+</span> op_foreigners_votingrights <span class="sc">+</span> vote_choice <span class="sc">+</span> gender <span class="sc">+</span> W4_age <span class="sc">+</span> language <span class="sc">+</span> canton,</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>                  <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>))</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a><span class="co">#best_model_glm1 = stepAIC(model_glm1)</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>best_model_glm2 <span class="ot">=</span> <span class="fu">glm</span>(<span class="at">formula =</span> yes_premium_initiative <span class="sc">~</span> income_adj_decile <span class="sc">+</span> <span class="fu">I</span>(eseg10 <span class="sc">==</span> <span class="st">"Retired"</span>) <span class="sc">+</span> lr <span class="sc">+</span> op_state_intervention <span class="sc">+</span> op_2many_worries_abt_env_vs_prices <span class="sc">+</span> op_min_wage <span class="sc">+</span> op_incr_retirement_age <span class="sc">+</span> op_foreigners_votingrights <span class="sc">+</span> vote_choice <span class="sc">+</span> gender <span class="sc">+</span> W4_age <span class="sc">+</span> language, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>), </span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>                      <span class="at">data =</span> data_model_fit2)</span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>avg_slopes_tbl_bestmodelW4 <span class="ot">=</span> best_model_glm2 <span class="sc">%&gt;%</span> </span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">avg_slopes</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjlabelled)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>selects2023panel2<span class="sc">$</span>assurance_maladie_franchise_pour <span class="ot">&lt;-</span> <span class="fu">labelled</span>(selects2023panel2<span class="sc">$</span>assurance_maladie_franchise_pour, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Fortement contre"</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">"Contre"</span> <span class="ot">=</span> <span class="dv">2</span>, <span class="st">"Ni pour, ni contre"</span> <span class="ot">=</span> <span class="dv">3</span>, <span class="st">"Pour"</span> <span class="ot">=</span> <span class="dv">4</span>, <span class="st">"Fortement pour"</span> <span class="ot">=</span> <span class="dv">5</span>))</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>selects2023panel2 <span class="sc">%&gt;%</span> </span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>   dplyr<span class="sc">::</span><span class="fu">select</span>(assurance_maladie_franchise_pour, eseg10, lr, education_ISCED, langue, W1_age, gender) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">opinion_augmentation_franchise =</span> <span class="st">"assurance_maladie_franchise_pour"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">"op"</span>), as_label)) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">"opinion_augmentation_franchise"</span>), as_label)) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">datasummary_skim</span>(<span class="at">output =</span> <span class="st">"html"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div id="tbl-skim1" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-skim1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;2: Statistiques descriptive variables du premier modèle
+Table&nbsp;1.2: Statistiques descriptive variables du premier modèle
 </figcaption>
 <div aria-describedby="tbl-skim1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -843,20 +1254,20 @@ Table&nbsp;2: Statistiques descriptive variables du premier modèle
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_2bpb7vsch421jwjjwfev = TinyTable.createTableFunctions("tinytable_2bpb7vsch421jwjjwfev");
+      const tableFns_nisff1ywr1ieks4kjd4a = TinyTable.createTableFunctions("tinytable_nisff1ywr1ieks4kjd4a");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '26', j: 1 }, { i: '26', j: 2 }, { i: '26', j: 3 }, { i: '26', j: 4 }, { i: '26', j: 5 }, { i: '26', j: 6 }, { i: '26', j: 7 }, { i: '26', j: 8 }, { i: '26', j: 9 } ], css_id: 'tinytable_css_zekamfof36hgpcv7ljxr',}, 
-          { positions: [ { i: '4', j: 1 }, { i: '4', j: 2 }, { i: '4', j: 3 }, { i: '4', j: 4 }, { i: '4', j: 5 }, { i: '4', j: 6 }, { i: '4', j: 7 }, { i: '4', j: 8 }, { i: '4', j: 9 } ], css_id: 'tinytable_css_qf3q406iemk1m4n9jlde',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 }, { i: '0', j: 5 }, { i: '0', j: 6 }, { i: '0', j: 7 }, { i: '0', j: 8 }, { i: '0', j: 9 } ], css_id: 'tinytable_css_uuaq59fbdu04x30co86t',}, 
+          { positions: [ { i: '26', j: 1 }, { i: '26', j: 2 }, { i: '26', j: 3 }, { i: '26', j: 4 }, { i: '26', j: 5 }, { i: '26', j: 6 }, { i: '26', j: 7 }, { i: '26', j: 8 }, { i: '26', j: 9 } ], css_id: 'tinytable_css_bdcwnbo7lt6wgsv48v6y',}, 
+          { positions: [ { i: '4', j: 1 }, { i: '4', j: 2 }, { i: '4', j: 3 }, { i: '4', j: 4 }, { i: '4', j: 5 }, { i: '4', j: 6 }, { i: '4', j: 7 }, { i: '4', j: 8 }, { i: '4', j: 9 } ], css_id: 'tinytable_css_3tisvxpk8vaoqqfq6808',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 }, { i: '0', j: 5 }, { i: '0', j: 6 }, { i: '0', j: 7 }, { i: '0', j: 8 }, { i: '0', j: 9 } ], css_id: 'tinytable_css_0l6ep99ckraymdv5qd3c',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_2bpb7vsch421jwjjwfev.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_nisff1ywr1ieks4kjd4a.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -865,12 +1276,12 @@ Table&nbsp;2: Statistiques descriptive variables du premier modèle
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_2bpb7vsch421jwjjwfev td.tinytable_css_zekamfof36hgpcv7ljxr, #tinytable_2bpb7vsch421jwjjwfev th.tinytable_css_zekamfof36hgpcv7ljxr {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_2bpb7vsch421jwjjwfev td.tinytable_css_qf3q406iemk1m4n9jlde, #tinytable_2bpb7vsch421jwjjwfev th.tinytable_css_qf3q406iemk1m4n9jlde {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: #d3d8dc; --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
-    #tinytable_2bpb7vsch421jwjjwfev td.tinytable_css_uuaq59fbdu04x30co86t, #tinytable_2bpb7vsch421jwjjwfev th.tinytable_css_uuaq59fbdu04x30co86t {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_nisff1ywr1ieks4kjd4a td.tinytable_css_bdcwnbo7lt6wgsv48v6y, #tinytable_nisff1ywr1ieks4kjd4a th.tinytable_css_bdcwnbo7lt6wgsv48v6y {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_nisff1ywr1ieks4kjd4a td.tinytable_css_3tisvxpk8vaoqqfq6808, #tinytable_nisff1ywr1ieks4kjd4a th.tinytable_css_3tisvxpk8vaoqqfq6808 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: #d3d8dc; --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
+    #tinytable_nisff1ywr1ieks4kjd4a td.tinytable_css_0l6ep99ckraymdv5qd3c, #tinytable_nisff1ywr1ieks4kjd4a th.tinytable_css_0l6ep99ckraymdv5qd3c {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_2bpb7vsch421jwjjwfev" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_nisff1ywr1ieks4kjd4a" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -1182,49 +1593,71 @@ Table&nbsp;2: Statistiques descriptive variables du premier modèle
 </figure>
 </div>
 </div>
-<div id="cell-fig-likert1" class="cell">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggstats)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>selects2023panel2 <span class="sc">%&gt;%</span> </span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(op_limit_immigration, op_funding_childcare , op_protec_env, op_min_wage, op_incr_retirementAge) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gglikert_stacked</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-likert1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-likert1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="index_files/figure-html/fig-likert1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Statistiques descriptives des variables à échelle Likert du premier modèle"><img src="index_files/figure-html/fig-likert1-1.png" class="img-fluid figure-img" width="672"></a>
+<img src="index_files/figure-html/fig-likert1-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-likert1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Statistiques descriptives des variables à échelle Likert du premier modèle
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div id="cell-fig-likert2" class="cell">
-<div class="cell-output-display">
-<div id="fig-likert2" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-likert2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="index_files/figure-html/fig-likert2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: Statistiques descriptives des variables à échelle Likert du premier modèle (2)"><img src="index_files/figure-html/fig-likert2-1.png" class="img-fluid figure-img" width="672"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-likert2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Statistiques descriptives des variables à échelle Likert du premier modèle (2)
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div id="cell-fig-likert3" class="cell">
-<div class="cell-output-display">
-<div id="fig-likert3" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-likert3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="index_files/figure-html/fig-likert3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: Statistiques descriptives des variables à échelle Likert du premier modèle (3)"><img src="index_files/figure-html/fig-likert3-1.png" class="img-fluid figure-img" width="672"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-likert3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: Statistiques descriptives des variables à échelle Likert du premier modèle (3)
+Figure&nbsp;1.1: Statistiques descriptives des variables à échelle Likert du premier modèle
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>selects2023panel2 <span class="sc">%&gt;%</span> </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(op_state_interv, op_social_expenses, op_eu_integration, op_chances_foreigners, op_gender_equality, op_taxes_high_income, op_traditions) <span class="sc">%&gt;%</span> </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a> <span class="fu">gglikert_stacked</span>()<span class="sc">+</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a> <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">5</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-likert2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-likert2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-likert2-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-likert2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.2: Statistiques descriptives des variables à échelle Likert du premier modèle (2)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>selects2023panel2 <span class="sc">%&gt;%</span> </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(probs_vote_plr, probs_vote_centre, probs_vote_ps, probs_vote_udc, probs_vote_verts, probs_vote_vertsliberaux) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gglikert_stacked</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-likert3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-likert3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-likert3-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-likert3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.3: Statistiques descriptives des variables à échelle Likert du premier modèle (3)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-descriptivemodel2</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Statistiques descriptives: Panel Selects 2025 vague 4 (variables du deuxième modèle)"</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>selects2023panelW4_2 <span class="sc">%&gt;%</span> </span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(yes_premium_initiative, eseg10, education_ISCED, lr, vote_choice, gender, W4_age, language, W4_f10771a) <span class="sc">%&gt;%</span> </span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">"W4_f10771a"</span>), as_label)) <span class="sc">%&gt;%</span> </span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">datasummary_skim</span>(<span class="at">output =</span> <span class="st">"html"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <!-- preamble start -->
 
@@ -1232,20 +1665,20 @@ Figure&nbsp;3: Statistiques descriptives des variables à échelle Likert du pre
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_dgwzeywvxloump6krcv5 = TinyTable.createTableFunctions("tinytable_dgwzeywvxloump6krcv5");
+      const tableFns_9b6arxo8rc3rjqzpzhbd = TinyTable.createTableFunctions("tinytable_9b6arxo8rc3rjqzpzhbd");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '33', j: 1 }, { i: '33', j: 2 }, { i: '33', j: 3 }, { i: '33', j: 4 }, { i: '33', j: 5 }, { i: '33', j: 6 }, { i: '33', j: 7 }, { i: '33', j: 8 }, { i: '33', j: 9 } ], css_id: 'tinytable_css_thv9g7az3r48ou15srl2',}, 
-          { positions: [ { i: '5', j: 1 }, { i: '5', j: 2 }, { i: '5', j: 3 }, { i: '5', j: 4 }, { i: '5', j: 5 }, { i: '5', j: 6 }, { i: '5', j: 7 }, { i: '5', j: 8 }, { i: '5', j: 9 } ], css_id: 'tinytable_css_l3z2ks7vqguj5q56vjm4',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 }, { i: '0', j: 5 }, { i: '0', j: 6 }, { i: '0', j: 7 }, { i: '0', j: 8 }, { i: '0', j: 9 } ], css_id: 'tinytable_css_j8ldljuxa0oracxog0b9',}, 
+          { positions: [ { i: '33', j: 1 }, { i: '33', j: 2 }, { i: '33', j: 3 }, { i: '33', j: 4 }, { i: '33', j: 5 }, { i: '33', j: 6 }, { i: '33', j: 7 }, { i: '33', j: 8 }, { i: '33', j: 9 } ], css_id: 'tinytable_css_xee6h5tzg9i23pnu7bhh',}, 
+          { positions: [ { i: '5', j: 1 }, { i: '5', j: 2 }, { i: '5', j: 3 }, { i: '5', j: 4 }, { i: '5', j: 5 }, { i: '5', j: 6 }, { i: '5', j: 7 }, { i: '5', j: 8 }, { i: '5', j: 9 } ], css_id: 'tinytable_css_lex3i0njvvtp876szxuq',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 }, { i: '0', j: 5 }, { i: '0', j: 6 }, { i: '0', j: 7 }, { i: '0', j: 8 }, { i: '0', j: 9 } ], css_id: 'tinytable_css_uxtm281aw94g5zc3jw4o',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_dgwzeywvxloump6krcv5.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_9b6arxo8rc3rjqzpzhbd.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1254,12 +1687,12 @@ Figure&nbsp;3: Statistiques descriptives des variables à échelle Likert du pre
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_dgwzeywvxloump6krcv5 td.tinytable_css_thv9g7az3r48ou15srl2, #tinytable_dgwzeywvxloump6krcv5 th.tinytable_css_thv9g7az3r48ou15srl2 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_dgwzeywvxloump6krcv5 td.tinytable_css_l3z2ks7vqguj5q56vjm4, #tinytable_dgwzeywvxloump6krcv5 th.tinytable_css_l3z2ks7vqguj5q56vjm4 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: #d3d8dc; --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
-    #tinytable_dgwzeywvxloump6krcv5 td.tinytable_css_j8ldljuxa0oracxog0b9, #tinytable_dgwzeywvxloump6krcv5 th.tinytable_css_j8ldljuxa0oracxog0b9 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_9b6arxo8rc3rjqzpzhbd td.tinytable_css_xee6h5tzg9i23pnu7bhh, #tinytable_9b6arxo8rc3rjqzpzhbd th.tinytable_css_xee6h5tzg9i23pnu7bhh {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_9b6arxo8rc3rjqzpzhbd td.tinytable_css_lex3i0njvvtp876szxuq, #tinytable_9b6arxo8rc3rjqzpzhbd th.tinytable_css_lex3i0njvvtp876szxuq {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: #d3d8dc; --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
+    #tinytable_9b6arxo8rc3rjqzpzhbd td.tinytable_css_uxtm281aw94g5zc3jw4o, #tinytable_9b6arxo8rc3rjqzpzhbd th.tinytable_css_uxtm281aw94g5zc3jw4o {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_dgwzeywvxloump6krcv5" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_9b6arxo8rc3rjqzpzhbd" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -1645,25 +2078,33 @@ Figure&nbsp;3: Statistiques descriptives des variables à échelle Likert du pre
 <!-- hack to avoid NA insertion in last line -->
 </div>
 </div>
-<div id="cell-fig-likert4" class="cell">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>likertW4 <span class="ot">&lt;-</span> </span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>selects2023panelW4_2 <span class="sc">%&gt;%</span> </span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(op_state_intervention, op_2many_worries_abt_env_vs_prices, op_min_wage, op_incr_retirement_age, op_foreigners_votingrights) <span class="sc">%&gt;%</span> <span class="fu">gglikert_stacked</span>()<span class="sc">+</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>))</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>likertW4</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-likert4" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-likert4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="index_files/figure-html/fig-likert4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;4: Statistiques descriptives des variables à échelle Likert du deuxième modèle (3)"><img src="index_files/figure-html/fig-likert4-1.png" class="img-fluid figure-img" width="672"></a>
+<img src="index_files/figure-html/fig-likert4-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-likert4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4: Statistiques descriptives des variables à échelle Likert du deuxième modèle (3)
+Figure&nbsp;1.4: Statistiques descriptives des variables à échelle Likert du deuxième modèle (3)
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(<span class="fu">list</span>(<span class="st">"Augmentation franchise minimale"</span> <span class="ot">=</span> model1_step2), <span class="at">stars =</span> T)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div id="tbl-reglogit" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-reglogit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;3: Régressions logit (log(odd))
+Table&nbsp;1.3: Régressions logit (log(odd))
 </figcaption>
 <div aria-describedby="tbl-reglogit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -1673,25 +2114,25 @@ Table&nbsp;3: Régressions logit (log(odd))
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_s0ix4pf1fj9934ua9yu1 = TinyTable.createTableFunctions("tinytable_s0ix4pf1fj9934ua9yu1");
+      const tableFns_zyb9d93j73s649w2l7r4 = TinyTable.createTableFunctions("tinytable_zyb9d93j73s649w2l7r4");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '46', j: 2 } ], css_id: 'tinytable_css_50k87sivk0i30sxqt3de',}, 
-          { positions: [ { i: '40', j: 2 } ], css_id: 'tinytable_css_ufd4qo0zj28lna61emre',}, 
-          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '10', j: 2 }, { i: '11', j: 2 }, { i: '12', j: 2 }, { i: '13', j: 2 }, { i: '14', j: 2 }, { i: '15', j: 2 }, { i: '16', j: 2 }, { i: '17', j: 2 }, { i: '18', j: 2 }, { i: '19', j: 2 }, { i: '20', j: 2 }, { i: '21', j: 2 }, { i: '22', j: 2 }, { i: '23', j: 2 }, { i: '24', j: 2 }, { i: '25', j: 2 }, { i: '26', j: 2 }, { i: '27', j: 2 }, { i: '28', j: 2 }, { i: '29', j: 2 }, { i: '30', j: 2 }, { i: '31', j: 2 }, { i: '32', j: 2 }, { i: '33', j: 2 }, { i: '34', j: 2 }, { i: '35', j: 2 }, { i: '36', j: 2 }, { i: '37', j: 2 }, { i: '38', j: 2 }, { i: '39', j: 2 }, { i: '41', j: 2 }, { i: '42', j: 2 }, { i: '43', j: 2 }, { i: '44', j: 2 }, { i: '45', j: 2 } ], css_id: 'tinytable_css_wnju4rgorpvd0itmo1dt',}, 
-          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_ocb009kt4k1vq1y82eeb',}, 
-          { positions: [ { i: '46', j: 1 } ], css_id: 'tinytable_css_bxs5bzorla4to9rjxmiw',}, 
-          { positions: [ { i: '40', j: 1 } ], css_id: 'tinytable_css_qz0n32xs3ecjph93cgvt',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '14', j: 1 }, { i: '15', j: 1 }, { i: '16', j: 1 }, { i: '17', j: 1 }, { i: '18', j: 1 }, { i: '19', j: 1 }, { i: '20', j: 1 }, { i: '21', j: 1 }, { i: '22', j: 1 }, { i: '23', j: 1 }, { i: '24', j: 1 }, { i: '25', j: 1 }, { i: '26', j: 1 }, { i: '27', j: 1 }, { i: '28', j: 1 }, { i: '29', j: 1 }, { i: '30', j: 1 }, { i: '31', j: 1 }, { i: '32', j: 1 }, { i: '33', j: 1 }, { i: '34', j: 1 }, { i: '35', j: 1 }, { i: '36', j: 1 }, { i: '37', j: 1 }, { i: '38', j: 1 }, { i: '39', j: 1 }, { i: '41', j: 1 }, { i: '42', j: 1 }, { i: '43', j: 1 }, { i: '44', j: 1 }, { i: '45', j: 1 } ], css_id: 'tinytable_css_cllw28ghbnl8mvwdf2ma',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_rwyyp5wwlvqbeb0pxnjh',}, 
+          { positions: [ { i: '46', j: 2 } ], css_id: 'tinytable_css_zv3k9687q056a48d468a',}, 
+          { positions: [ { i: '40', j: 2 } ], css_id: 'tinytable_css_c611xbih1mq9zjl2qmq6',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '10', j: 2 }, { i: '11', j: 2 }, { i: '12', j: 2 }, { i: '13', j: 2 }, { i: '14', j: 2 }, { i: '15', j: 2 }, { i: '16', j: 2 }, { i: '17', j: 2 }, { i: '18', j: 2 }, { i: '19', j: 2 }, { i: '20', j: 2 }, { i: '21', j: 2 }, { i: '22', j: 2 }, { i: '23', j: 2 }, { i: '24', j: 2 }, { i: '25', j: 2 }, { i: '26', j: 2 }, { i: '27', j: 2 }, { i: '28', j: 2 }, { i: '29', j: 2 }, { i: '30', j: 2 }, { i: '31', j: 2 }, { i: '32', j: 2 }, { i: '33', j: 2 }, { i: '34', j: 2 }, { i: '35', j: 2 }, { i: '36', j: 2 }, { i: '37', j: 2 }, { i: '38', j: 2 }, { i: '39', j: 2 }, { i: '41', j: 2 }, { i: '42', j: 2 }, { i: '43', j: 2 }, { i: '44', j: 2 }, { i: '45', j: 2 } ], css_id: 'tinytable_css_0llup4mq02gy92dqvsui',}, 
+          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_3p4d91hbpxr6jmoboteg',}, 
+          { positions: [ { i: '46', j: 1 } ], css_id: 'tinytable_css_b970or4po2k4j3rek3th',}, 
+          { positions: [ { i: '40', j: 1 } ], css_id: 'tinytable_css_6cfht5e9kdl9ws62dtln',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '14', j: 1 }, { i: '15', j: 1 }, { i: '16', j: 1 }, { i: '17', j: 1 }, { i: '18', j: 1 }, { i: '19', j: 1 }, { i: '20', j: 1 }, { i: '21', j: 1 }, { i: '22', j: 1 }, { i: '23', j: 1 }, { i: '24', j: 1 }, { i: '25', j: 1 }, { i: '26', j: 1 }, { i: '27', j: 1 }, { i: '28', j: 1 }, { i: '29', j: 1 }, { i: '30', j: 1 }, { i: '31', j: 1 }, { i: '32', j: 1 }, { i: '33', j: 1 }, { i: '34', j: 1 }, { i: '35', j: 1 }, { i: '36', j: 1 }, { i: '37', j: 1 }, { i: '38', j: 1 }, { i: '39', j: 1 }, { i: '41', j: 1 }, { i: '42', j: 1 }, { i: '43', j: 1 }, { i: '44', j: 1 }, { i: '45', j: 1 } ], css_id: 'tinytable_css_ef2va7mnky2e1895k6vf',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_942rufi4lfpr0dljzi15',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_s0ix4pf1fj9934ua9yu1.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_zyb9d93j73s649w2l7r4.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1700,17 +2141,17 @@ Table&nbsp;3: Régressions logit (log(odd))
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_s0ix4pf1fj9934ua9yu1 td.tinytable_css_50k87sivk0i30sxqt3de, #tinytable_s0ix4pf1fj9934ua9yu1 th.tinytable_css_50k87sivk0i30sxqt3de {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_s0ix4pf1fj9934ua9yu1 td.tinytable_css_ufd4qo0zj28lna61emre, #tinytable_s0ix4pf1fj9934ua9yu1 th.tinytable_css_ufd4qo0zj28lna61emre {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_s0ix4pf1fj9934ua9yu1 td.tinytable_css_wnju4rgorpvd0itmo1dt, #tinytable_s0ix4pf1fj9934ua9yu1 th.tinytable_css_wnju4rgorpvd0itmo1dt { text-align: center }
-    #tinytable_s0ix4pf1fj9934ua9yu1 td.tinytable_css_ocb009kt4k1vq1y82eeb, #tinytable_s0ix4pf1fj9934ua9yu1 th.tinytable_css_ocb009kt4k1vq1y82eeb {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_s0ix4pf1fj9934ua9yu1 td.tinytable_css_bxs5bzorla4to9rjxmiw, #tinytable_s0ix4pf1fj9934ua9yu1 th.tinytable_css_bxs5bzorla4to9rjxmiw {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_s0ix4pf1fj9934ua9yu1 td.tinytable_css_qz0n32xs3ecjph93cgvt, #tinytable_s0ix4pf1fj9934ua9yu1 th.tinytable_css_qz0n32xs3ecjph93cgvt {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_s0ix4pf1fj9934ua9yu1 td.tinytable_css_cllw28ghbnl8mvwdf2ma, #tinytable_s0ix4pf1fj9934ua9yu1 th.tinytable_css_cllw28ghbnl8mvwdf2ma { text-align: left }
-    #tinytable_s0ix4pf1fj9934ua9yu1 td.tinytable_css_rwyyp5wwlvqbeb0pxnjh, #tinytable_s0ix4pf1fj9934ua9yu1 th.tinytable_css_rwyyp5wwlvqbeb0pxnjh {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_zyb9d93j73s649w2l7r4 td.tinytable_css_zv3k9687q056a48d468a, #tinytable_zyb9d93j73s649w2l7r4 th.tinytable_css_zv3k9687q056a48d468a {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_zyb9d93j73s649w2l7r4 td.tinytable_css_c611xbih1mq9zjl2qmq6, #tinytable_zyb9d93j73s649w2l7r4 th.tinytable_css_c611xbih1mq9zjl2qmq6 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_zyb9d93j73s649w2l7r4 td.tinytable_css_0llup4mq02gy92dqvsui, #tinytable_zyb9d93j73s649w2l7r4 th.tinytable_css_0llup4mq02gy92dqvsui { text-align: center }
+    #tinytable_zyb9d93j73s649w2l7r4 td.tinytable_css_3p4d91hbpxr6jmoboteg, #tinytable_zyb9d93j73s649w2l7r4 th.tinytable_css_3p4d91hbpxr6jmoboteg {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_zyb9d93j73s649w2l7r4 td.tinytable_css_b970or4po2k4j3rek3th, #tinytable_zyb9d93j73s649w2l7r4 th.tinytable_css_b970or4po2k4j3rek3th {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_zyb9d93j73s649w2l7r4 td.tinytable_css_6cfht5e9kdl9ws62dtln, #tinytable_zyb9d93j73s649w2l7r4 th.tinytable_css_6cfht5e9kdl9ws62dtln {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_zyb9d93j73s649w2l7r4 td.tinytable_css_ef2va7mnky2e1895k6vf, #tinytable_zyb9d93j73s649w2l7r4 th.tinytable_css_ef2va7mnky2e1895k6vf { text-align: left }
+    #tinytable_zyb9d93j73s649w2l7r4 td.tinytable_css_942rufi4lfpr0dljzi15, #tinytable_zyb9d93j73s649w2l7r4 th.tinytable_css_942rufi4lfpr0dljzi15 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_s0ix4pf1fj9934ua9yu1" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_zyb9d93j73s649w2l7r4" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -1914,6 +2355,7 @@ Table&nbsp;3: Régressions logit (log(odd))
 </div>
 </div>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(<span class="fu">list</span>(<span class="st">"Initiative pour l'allègement des primes"</span> <span class="ot">=</span> best_model_glm2), <span class="at">stars =</span> T)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <!-- preamble start -->
 
@@ -1921,25 +2363,25 @@ Table&nbsp;3: Régressions logit (log(odd))
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_dkjif1w41qnoonqq7xw2 = TinyTable.createTableFunctions("tinytable_dkjif1w41qnoonqq7xw2");
+      const tableFns_0zpx4ct2ume86bpj7b5u = TinyTable.createTableFunctions("tinytable_0zpx4ct2ume86bpj7b5u");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '44', j: 2 } ], css_id: 'tinytable_css_q12sab7nthlkccu7zk19',}, 
-          { positions: [ { i: '38', j: 2 } ], css_id: 'tinytable_css_2wiwgxk8g73f9lpjnazc',}, 
-          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '10', j: 2 }, { i: '11', j: 2 }, { i: '12', j: 2 }, { i: '13', j: 2 }, { i: '14', j: 2 }, { i: '15', j: 2 }, { i: '16', j: 2 }, { i: '17', j: 2 }, { i: '18', j: 2 }, { i: '19', j: 2 }, { i: '20', j: 2 }, { i: '21', j: 2 }, { i: '22', j: 2 }, { i: '23', j: 2 }, { i: '24', j: 2 }, { i: '25', j: 2 }, { i: '26', j: 2 }, { i: '27', j: 2 }, { i: '28', j: 2 }, { i: '29', j: 2 }, { i: '30', j: 2 }, { i: '31', j: 2 }, { i: '32', j: 2 }, { i: '33', j: 2 }, { i: '34', j: 2 }, { i: '35', j: 2 }, { i: '36', j: 2 }, { i: '37', j: 2 }, { i: '39', j: 2 }, { i: '40', j: 2 }, { i: '41', j: 2 }, { i: '42', j: 2 }, { i: '43', j: 2 } ], css_id: 'tinytable_css_twdig41sat7ki6hu1qew',}, 
-          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_dkcl201ehrddn9v8ylpb',}, 
-          { positions: [ { i: '44', j: 1 } ], css_id: 'tinytable_css_r07sq6f02uwyuxc3dl8z',}, 
-          { positions: [ { i: '38', j: 1 } ], css_id: 'tinytable_css_f8q912eduzqtdj7wa18m',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '14', j: 1 }, { i: '15', j: 1 }, { i: '16', j: 1 }, { i: '17', j: 1 }, { i: '18', j: 1 }, { i: '19', j: 1 }, { i: '20', j: 1 }, { i: '21', j: 1 }, { i: '22', j: 1 }, { i: '23', j: 1 }, { i: '24', j: 1 }, { i: '25', j: 1 }, { i: '26', j: 1 }, { i: '27', j: 1 }, { i: '28', j: 1 }, { i: '29', j: 1 }, { i: '30', j: 1 }, { i: '31', j: 1 }, { i: '32', j: 1 }, { i: '33', j: 1 }, { i: '34', j: 1 }, { i: '35', j: 1 }, { i: '36', j: 1 }, { i: '37', j: 1 }, { i: '39', j: 1 }, { i: '40', j: 1 }, { i: '41', j: 1 }, { i: '42', j: 1 }, { i: '43', j: 1 } ], css_id: 'tinytable_css_bgjjxgpvja3b8li74yxt',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_3exhalfns6ixg802d44z',}, 
+          { positions: [ { i: '44', j: 2 } ], css_id: 'tinytable_css_w1nw4fcnu0vehguwyaph',}, 
+          { positions: [ { i: '38', j: 2 } ], css_id: 'tinytable_css_j0mr7a9l0593mo3ajlo2',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '10', j: 2 }, { i: '11', j: 2 }, { i: '12', j: 2 }, { i: '13', j: 2 }, { i: '14', j: 2 }, { i: '15', j: 2 }, { i: '16', j: 2 }, { i: '17', j: 2 }, { i: '18', j: 2 }, { i: '19', j: 2 }, { i: '20', j: 2 }, { i: '21', j: 2 }, { i: '22', j: 2 }, { i: '23', j: 2 }, { i: '24', j: 2 }, { i: '25', j: 2 }, { i: '26', j: 2 }, { i: '27', j: 2 }, { i: '28', j: 2 }, { i: '29', j: 2 }, { i: '30', j: 2 }, { i: '31', j: 2 }, { i: '32', j: 2 }, { i: '33', j: 2 }, { i: '34', j: 2 }, { i: '35', j: 2 }, { i: '36', j: 2 }, { i: '37', j: 2 }, { i: '39', j: 2 }, { i: '40', j: 2 }, { i: '41', j: 2 }, { i: '42', j: 2 }, { i: '43', j: 2 } ], css_id: 'tinytable_css_wnp0l0u5n7zcgt4pslcm',}, 
+          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_u61nyxxv34x90r6415bz',}, 
+          { positions: [ { i: '44', j: 1 } ], css_id: 'tinytable_css_8je4tl2ekytjn7pmsigi',}, 
+          { positions: [ { i: '38', j: 1 } ], css_id: 'tinytable_css_82t9q1wd5i1vsh9olq0r',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '14', j: 1 }, { i: '15', j: 1 }, { i: '16', j: 1 }, { i: '17', j: 1 }, { i: '18', j: 1 }, { i: '19', j: 1 }, { i: '20', j: 1 }, { i: '21', j: 1 }, { i: '22', j: 1 }, { i: '23', j: 1 }, { i: '24', j: 1 }, { i: '25', j: 1 }, { i: '26', j: 1 }, { i: '27', j: 1 }, { i: '28', j: 1 }, { i: '29', j: 1 }, { i: '30', j: 1 }, { i: '31', j: 1 }, { i: '32', j: 1 }, { i: '33', j: 1 }, { i: '34', j: 1 }, { i: '35', j: 1 }, { i: '36', j: 1 }, { i: '37', j: 1 }, { i: '39', j: 1 }, { i: '40', j: 1 }, { i: '41', j: 1 }, { i: '42', j: 1 }, { i: '43', j: 1 } ], css_id: 'tinytable_css_rmccvoc27c8tktkmtwac',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_ng4zvaqf9lhyk4ecqclg',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_dkjif1w41qnoonqq7xw2.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_0zpx4ct2ume86bpj7b5u.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1948,17 +2390,17 @@ Table&nbsp;3: Régressions logit (log(odd))
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_dkjif1w41qnoonqq7xw2 td.tinytable_css_q12sab7nthlkccu7zk19, #tinytable_dkjif1w41qnoonqq7xw2 th.tinytable_css_q12sab7nthlkccu7zk19 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_dkjif1w41qnoonqq7xw2 td.tinytable_css_2wiwgxk8g73f9lpjnazc, #tinytable_dkjif1w41qnoonqq7xw2 th.tinytable_css_2wiwgxk8g73f9lpjnazc {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_dkjif1w41qnoonqq7xw2 td.tinytable_css_twdig41sat7ki6hu1qew, #tinytable_dkjif1w41qnoonqq7xw2 th.tinytable_css_twdig41sat7ki6hu1qew { text-align: center }
-    #tinytable_dkjif1w41qnoonqq7xw2 td.tinytable_css_dkcl201ehrddn9v8ylpb, #tinytable_dkjif1w41qnoonqq7xw2 th.tinytable_css_dkcl201ehrddn9v8ylpb {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_dkjif1w41qnoonqq7xw2 td.tinytable_css_r07sq6f02uwyuxc3dl8z, #tinytable_dkjif1w41qnoonqq7xw2 th.tinytable_css_r07sq6f02uwyuxc3dl8z {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_dkjif1w41qnoonqq7xw2 td.tinytable_css_f8q912eduzqtdj7wa18m, #tinytable_dkjif1w41qnoonqq7xw2 th.tinytable_css_f8q912eduzqtdj7wa18m {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_dkjif1w41qnoonqq7xw2 td.tinytable_css_bgjjxgpvja3b8li74yxt, #tinytable_dkjif1w41qnoonqq7xw2 th.tinytable_css_bgjjxgpvja3b8li74yxt { text-align: left }
-    #tinytable_dkjif1w41qnoonqq7xw2 td.tinytable_css_3exhalfns6ixg802d44z, #tinytable_dkjif1w41qnoonqq7xw2 th.tinytable_css_3exhalfns6ixg802d44z {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_0zpx4ct2ume86bpj7b5u td.tinytable_css_w1nw4fcnu0vehguwyaph, #tinytable_0zpx4ct2ume86bpj7b5u th.tinytable_css_w1nw4fcnu0vehguwyaph {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_0zpx4ct2ume86bpj7b5u td.tinytable_css_j0mr7a9l0593mo3ajlo2, #tinytable_0zpx4ct2ume86bpj7b5u th.tinytable_css_j0mr7a9l0593mo3ajlo2 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_0zpx4ct2ume86bpj7b5u td.tinytable_css_wnp0l0u5n7zcgt4pslcm, #tinytable_0zpx4ct2ume86bpj7b5u th.tinytable_css_wnp0l0u5n7zcgt4pslcm { text-align: center }
+    #tinytable_0zpx4ct2ume86bpj7b5u td.tinytable_css_u61nyxxv34x90r6415bz, #tinytable_0zpx4ct2ume86bpj7b5u th.tinytable_css_u61nyxxv34x90r6415bz {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_0zpx4ct2ume86bpj7b5u td.tinytable_css_8je4tl2ekytjn7pmsigi, #tinytable_0zpx4ct2ume86bpj7b5u th.tinytable_css_8je4tl2ekytjn7pmsigi {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_0zpx4ct2ume86bpj7b5u td.tinytable_css_82t9q1wd5i1vsh9olq0r, #tinytable_0zpx4ct2ume86bpj7b5u th.tinytable_css_82t9q1wd5i1vsh9olq0r {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_0zpx4ct2ume86bpj7b5u td.tinytable_css_rmccvoc27c8tktkmtwac, #tinytable_0zpx4ct2ume86bpj7b5u th.tinytable_css_rmccvoc27c8tktkmtwac { text-align: left }
+    #tinytable_0zpx4ct2ume86bpj7b5u td.tinytable_css_ng4zvaqf9lhyk4ecqclg, #tinytable_0zpx4ct2ume86bpj7b5u th.tinytable_css_ng4zvaqf9lhyk4ecqclg {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_dkjif1w41qnoonqq7xw2" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_0zpx4ct2ume86bpj7b5u" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -2151,10 +2593,36 @@ Table&nbsp;3: Régressions logit (log(odd))
 </div>
 </div>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attachement du package : 'sjPlot'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>L'objet suivant est masqué depuis 'package:ggplot2':
+
+    set_theme</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>glmer_canton_franchise <span class="ot">=</span> <span class="fu">glmer</span>(<span class="at">data =</span> selects2023panel2,</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>                               contre_augm_franch_min <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>canton),</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>                               <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>))</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>glmer_canton_primes <span class="ot">=</span> <span class="fu">glmer</span>(<span class="at">data =</span> selects2023panelW4_2,</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>                               yes_premium_initiative <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>canton),</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>                            <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(<span class="at">models =</span> <span class="fu">list</span>(<span class="st">"Augmentation franchise minimale"</span> <span class="ot">=</span> glmer_canton_primes, <span class="st">"Initiative pour l'allègement des primes"</span> <span class="ot">=</span> glmer_canton_franchise))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div id="tbl-canton" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-canton-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;4: Modèle multiniveau: cantons suisses en niveau
+Table&nbsp;1.4: Modèle multiniveau: cantons suisses en niveau
 </figcaption>
 <div aria-describedby="tbl-canton-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -2164,25 +2632,25 @@ Table&nbsp;4: Modèle multiniveau: cantons suisses en niveau
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_zdfershofmela8piaas5 = TinyTable.createTableFunctions("tinytable_zdfershofmela8piaas5");
+      const tableFns_6i0tqdtknrmmyf7h29vz = TinyTable.createTableFunctions("tinytable_6i0tqdtknrmmyf7h29vz");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '10', j: 2 }, { i: '10', j: 3 } ], css_id: 'tinytable_css_vpdk0d3lpatxgwfqdr5g',}, 
-          { positions: [ { i: '3', j: 2 }, { i: '3', j: 3 } ], css_id: 'tinytable_css_0zzf2bbvuclo6bvyakbb',}, 
-          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '4', j: 3 }, { i: '5', j: 3 }, { i: '6', j: 3 }, { i: '7', j: 3 }, { i: '8', j: 3 }, { i: '9', j: 3 } ], css_id: 'tinytable_css_057oaw35l94e90zdftia',}, 
-          { positions: [ { i: '0', j: 2 }, { i: '0', j: 3 } ], css_id: 'tinytable_css_kbsyhuvikw7g4q0vnoep',}, 
-          { positions: [ { i: '10', j: 1 } ], css_id: 'tinytable_css_q1uj9bixxl1as6ft5vjk',}, 
-          { positions: [ { i: '3', j: 1 } ], css_id: 'tinytable_css_hx66p0fdekxt7keccmd2',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 } ], css_id: 'tinytable_css_phx9qoud8ckxr7nkd9am',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_xwhf4c7l81g2pcix8q8j',}, 
+          { positions: [ { i: '10', j: 2 }, { i: '10', j: 3 } ], css_id: 'tinytable_css_a48ak2ict2wq9eedg9ra',}, 
+          { positions: [ { i: '3', j: 2 }, { i: '3', j: 3 } ], css_id: 'tinytable_css_72rkbdrwb7973ywkqdqi',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '4', j: 3 }, { i: '5', j: 3 }, { i: '6', j: 3 }, { i: '7', j: 3 }, { i: '8', j: 3 }, { i: '9', j: 3 } ], css_id: 'tinytable_css_f7ao48d6ridyepnydrl2',}, 
+          { positions: [ { i: '0', j: 2 }, { i: '0', j: 3 } ], css_id: 'tinytable_css_3n9in9dk8ssktnlpf9c2',}, 
+          { positions: [ { i: '10', j: 1 } ], css_id: 'tinytable_css_lqg4qhcb3dqhksglh9qg',}, 
+          { positions: [ { i: '3', j: 1 } ], css_id: 'tinytable_css_fahqxlfomng0a8w7y3ez',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 } ], css_id: 'tinytable_css_ptwduf9g1wc7614xzqqh',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_vyv6g1yo2xr2dz50etwu',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_zdfershofmela8piaas5.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_6i0tqdtknrmmyf7h29vz.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -2191,17 +2659,17 @@ Table&nbsp;4: Modèle multiniveau: cantons suisses en niveau
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_zdfershofmela8piaas5 td.tinytable_css_vpdk0d3lpatxgwfqdr5g, #tinytable_zdfershofmela8piaas5 th.tinytable_css_vpdk0d3lpatxgwfqdr5g {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_zdfershofmela8piaas5 td.tinytable_css_0zzf2bbvuclo6bvyakbb, #tinytable_zdfershofmela8piaas5 th.tinytable_css_0zzf2bbvuclo6bvyakbb {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_zdfershofmela8piaas5 td.tinytable_css_057oaw35l94e90zdftia, #tinytable_zdfershofmela8piaas5 th.tinytable_css_057oaw35l94e90zdftia { text-align: center }
-    #tinytable_zdfershofmela8piaas5 td.tinytable_css_kbsyhuvikw7g4q0vnoep, #tinytable_zdfershofmela8piaas5 th.tinytable_css_kbsyhuvikw7g4q0vnoep {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_zdfershofmela8piaas5 td.tinytable_css_q1uj9bixxl1as6ft5vjk, #tinytable_zdfershofmela8piaas5 th.tinytable_css_q1uj9bixxl1as6ft5vjk {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_zdfershofmela8piaas5 td.tinytable_css_hx66p0fdekxt7keccmd2, #tinytable_zdfershofmela8piaas5 th.tinytable_css_hx66p0fdekxt7keccmd2 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_zdfershofmela8piaas5 td.tinytable_css_phx9qoud8ckxr7nkd9am, #tinytable_zdfershofmela8piaas5 th.tinytable_css_phx9qoud8ckxr7nkd9am { text-align: left }
-    #tinytable_zdfershofmela8piaas5 td.tinytable_css_xwhf4c7l81g2pcix8q8j, #tinytable_zdfershofmela8piaas5 th.tinytable_css_xwhf4c7l81g2pcix8q8j {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_6i0tqdtknrmmyf7h29vz td.tinytable_css_a48ak2ict2wq9eedg9ra, #tinytable_6i0tqdtknrmmyf7h29vz th.tinytable_css_a48ak2ict2wq9eedg9ra {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_6i0tqdtknrmmyf7h29vz td.tinytable_css_72rkbdrwb7973ywkqdqi, #tinytable_6i0tqdtknrmmyf7h29vz th.tinytable_css_72rkbdrwb7973ywkqdqi {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_6i0tqdtknrmmyf7h29vz td.tinytable_css_f7ao48d6ridyepnydrl2, #tinytable_6i0tqdtknrmmyf7h29vz th.tinytable_css_f7ao48d6ridyepnydrl2 { text-align: center }
+    #tinytable_6i0tqdtknrmmyf7h29vz td.tinytable_css_3n9in9dk8ssktnlpf9c2, #tinytable_6i0tqdtknrmmyf7h29vz th.tinytable_css_3n9in9dk8ssktnlpf9c2 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_6i0tqdtknrmmyf7h29vz td.tinytable_css_lqg4qhcb3dqhksglh9qg, #tinytable_6i0tqdtknrmmyf7h29vz th.tinytable_css_lqg4qhcb3dqhksglh9qg {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_6i0tqdtknrmmyf7h29vz td.tinytable_css_fahqxlfomng0a8w7y3ez, #tinytable_6i0tqdtknrmmyf7h29vz th.tinytable_css_fahqxlfomng0a8w7y3ez {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_6i0tqdtknrmmyf7h29vz td.tinytable_css_ptwduf9g1wc7614xzqqh, #tinytable_6i0tqdtknrmmyf7h29vz th.tinytable_css_ptwduf9g1wc7614xzqqh { text-align: left }
+    #tinytable_6i0tqdtknrmmyf7h29vz td.tinytable_css_vyv6g1yo2xr2dz50etwu, #tinytable_6i0tqdtknrmmyf7h29vz th.tinytable_css_vyv6g1yo2xr2dz50etwu {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_zdfershofmela8piaas5" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_6i0tqdtknrmmyf7h29vz" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -2272,10 +2740,19 @@ Table&nbsp;4: Modèle multiniveau: cantons suisses en niveau
 </div>
 </div>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>glm_eseg_franchise <span class="ot">=</span> <span class="fu">glm</span>(<span class="at">data =</span> selects2023panel2,</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>                               contre_augm_franch_min <span class="sc">~</span> eseg10,</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>                               <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>))</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>glm_eseg_primes <span class="ot">=</span> <span class="fu">glm</span>(<span class="at">data =</span> selects2023panelW4_2,</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>                               yes_premium_initiative <span class="sc">~</span> eseg10,</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>                            <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>))</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(<span class="fu">list</span>(<span class="st">"Augmentation franchise minimale"</span> <span class="ot">=</span> glm_eseg_franchise, <span class="st">"Initiative pour l'allègement des primes"</span> <span class="ot">=</span> glm_eseg_primes), <span class="at">stars =</span> T)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div id="tbl-reg2" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-reg2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;5: Régressions logistiques simples: opposition à l’augmentation de la franchise et vote pour l’allègement des primes sur les catégories socio-professionnelles ESEG (Log(Odd))
+Table&nbsp;1.5: Régressions logistiques simples: opposition à l’augmentation de la franchise et vote pour l’allègement des primes sur les catégories socio-professionnelles ESEG (Log(Odd))
 </figcaption>
 <div aria-describedby="tbl-reg2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -2285,25 +2762,25 @@ Table&nbsp;5: Régressions logistiques simples: opposition à l’augmentation d
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_2819x5wk35lvd4ydn8jb = TinyTable.createTableFunctions("tinytable_2819x5wk35lvd4ydn8jb");
+      const tableFns_2h9thf3ewjkdvxfcyfkc = TinyTable.createTableFunctions("tinytable_2h9thf3ewjkdvxfcyfkc");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '27', j: 2 }, { i: '27', j: 3 } ], css_id: 'tinytable_css_qna5ylozqmfbtaa77tt9',}, 
-          { positions: [ { i: '22', j: 2 }, { i: '22', j: 3 } ], css_id: 'tinytable_css_7j7xvy7denuf9t3da6pz',}, 
-          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '10', j: 2 }, { i: '11', j: 2 }, { i: '12', j: 2 }, { i: '13', j: 2 }, { i: '14', j: 2 }, { i: '15', j: 2 }, { i: '16', j: 2 }, { i: '17', j: 2 }, { i: '18', j: 2 }, { i: '19', j: 2 }, { i: '20', j: 2 }, { i: '21', j: 2 }, { i: '23', j: 2 }, { i: '24', j: 2 }, { i: '25', j: 2 }, { i: '26', j: 2 }, { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '3', j: 3 }, { i: '4', j: 3 }, { i: '5', j: 3 }, { i: '6', j: 3 }, { i: '7', j: 3 }, { i: '8', j: 3 }, { i: '9', j: 3 }, { i: '10', j: 3 }, { i: '11', j: 3 }, { i: '12', j: 3 }, { i: '13', j: 3 }, { i: '14', j: 3 }, { i: '15', j: 3 }, { i: '16', j: 3 }, { i: '17', j: 3 }, { i: '18', j: 3 }, { i: '19', j: 3 }, { i: '20', j: 3 }, { i: '21', j: 3 }, { i: '23', j: 3 }, { i: '24', j: 3 }, { i: '25', j: 3 }, { i: '26', j: 3 } ], css_id: 'tinytable_css_rlitwlfdrpgxhn4xujwh',}, 
-          { positions: [ { i: '0', j: 2 }, { i: '0', j: 3 } ], css_id: 'tinytable_css_jq897qtqiimy6vywso2d',}, 
-          { positions: [ { i: '27', j: 1 } ], css_id: 'tinytable_css_lmkdznyvm96ityd5z2be',}, 
-          { positions: [ { i: '22', j: 1 } ], css_id: 'tinytable_css_1idbbwjqb47zi2qwc2ah',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '14', j: 1 }, { i: '15', j: 1 }, { i: '16', j: 1 }, { i: '17', j: 1 }, { i: '18', j: 1 }, { i: '19', j: 1 }, { i: '20', j: 1 }, { i: '21', j: 1 }, { i: '23', j: 1 }, { i: '24', j: 1 }, { i: '25', j: 1 }, { i: '26', j: 1 } ], css_id: 'tinytable_css_y4ut9b9ru09veoj05du9',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_iz3v7dovj5ahiyedk57t',}, 
+          { positions: [ { i: '27', j: 2 }, { i: '27', j: 3 } ], css_id: 'tinytable_css_arafcqteiip2jpf4xd6n',}, 
+          { positions: [ { i: '22', j: 2 }, { i: '22', j: 3 } ], css_id: 'tinytable_css_ji9mhzbysavt3bmtxgvv',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '10', j: 2 }, { i: '11', j: 2 }, { i: '12', j: 2 }, { i: '13', j: 2 }, { i: '14', j: 2 }, { i: '15', j: 2 }, { i: '16', j: 2 }, { i: '17', j: 2 }, { i: '18', j: 2 }, { i: '19', j: 2 }, { i: '20', j: 2 }, { i: '21', j: 2 }, { i: '23', j: 2 }, { i: '24', j: 2 }, { i: '25', j: 2 }, { i: '26', j: 2 }, { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '3', j: 3 }, { i: '4', j: 3 }, { i: '5', j: 3 }, { i: '6', j: 3 }, { i: '7', j: 3 }, { i: '8', j: 3 }, { i: '9', j: 3 }, { i: '10', j: 3 }, { i: '11', j: 3 }, { i: '12', j: 3 }, { i: '13', j: 3 }, { i: '14', j: 3 }, { i: '15', j: 3 }, { i: '16', j: 3 }, { i: '17', j: 3 }, { i: '18', j: 3 }, { i: '19', j: 3 }, { i: '20', j: 3 }, { i: '21', j: 3 }, { i: '23', j: 3 }, { i: '24', j: 3 }, { i: '25', j: 3 }, { i: '26', j: 3 } ], css_id: 'tinytable_css_i34x4pc43gyz0iak3bl2',}, 
+          { positions: [ { i: '0', j: 2 }, { i: '0', j: 3 } ], css_id: 'tinytable_css_1qzwojmmpj6umpw4xjf3',}, 
+          { positions: [ { i: '27', j: 1 } ], css_id: 'tinytable_css_znkd0aht9te08qfrh3dm',}, 
+          { positions: [ { i: '22', j: 1 } ], css_id: 'tinytable_css_i6hd66y5ex69i4aropth',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '14', j: 1 }, { i: '15', j: 1 }, { i: '16', j: 1 }, { i: '17', j: 1 }, { i: '18', j: 1 }, { i: '19', j: 1 }, { i: '20', j: 1 }, { i: '21', j: 1 }, { i: '23', j: 1 }, { i: '24', j: 1 }, { i: '25', j: 1 }, { i: '26', j: 1 } ], css_id: 'tinytable_css_uzpmisz771cd1qftiyyp',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_zw677mb1fqz6iv5a9yf6',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_2819x5wk35lvd4ydn8jb.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_2h9thf3ewjkdvxfcyfkc.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -2312,17 +2789,17 @@ Table&nbsp;5: Régressions logistiques simples: opposition à l’augmentation d
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_2819x5wk35lvd4ydn8jb td.tinytable_css_qna5ylozqmfbtaa77tt9, #tinytable_2819x5wk35lvd4ydn8jb th.tinytable_css_qna5ylozqmfbtaa77tt9 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_2819x5wk35lvd4ydn8jb td.tinytable_css_7j7xvy7denuf9t3da6pz, #tinytable_2819x5wk35lvd4ydn8jb th.tinytable_css_7j7xvy7denuf9t3da6pz {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_2819x5wk35lvd4ydn8jb td.tinytable_css_rlitwlfdrpgxhn4xujwh, #tinytable_2819x5wk35lvd4ydn8jb th.tinytable_css_rlitwlfdrpgxhn4xujwh { text-align: center }
-    #tinytable_2819x5wk35lvd4ydn8jb td.tinytable_css_jq897qtqiimy6vywso2d, #tinytable_2819x5wk35lvd4ydn8jb th.tinytable_css_jq897qtqiimy6vywso2d {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_2819x5wk35lvd4ydn8jb td.tinytable_css_lmkdznyvm96ityd5z2be, #tinytable_2819x5wk35lvd4ydn8jb th.tinytable_css_lmkdznyvm96ityd5z2be {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_2819x5wk35lvd4ydn8jb td.tinytable_css_1idbbwjqb47zi2qwc2ah, #tinytable_2819x5wk35lvd4ydn8jb th.tinytable_css_1idbbwjqb47zi2qwc2ah {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_2819x5wk35lvd4ydn8jb td.tinytable_css_y4ut9b9ru09veoj05du9, #tinytable_2819x5wk35lvd4ydn8jb th.tinytable_css_y4ut9b9ru09veoj05du9 { text-align: left }
-    #tinytable_2819x5wk35lvd4ydn8jb td.tinytable_css_iz3v7dovj5ahiyedk57t, #tinytable_2819x5wk35lvd4ydn8jb th.tinytable_css_iz3v7dovj5ahiyedk57t {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_2h9thf3ewjkdvxfcyfkc td.tinytable_css_arafcqteiip2jpf4xd6n, #tinytable_2h9thf3ewjkdvxfcyfkc th.tinytable_css_arafcqteiip2jpf4xd6n {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_2h9thf3ewjkdvxfcyfkc td.tinytable_css_ji9mhzbysavt3bmtxgvv, #tinytable_2h9thf3ewjkdvxfcyfkc th.tinytable_css_ji9mhzbysavt3bmtxgvv {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_2h9thf3ewjkdvxfcyfkc td.tinytable_css_i34x4pc43gyz0iak3bl2, #tinytable_2h9thf3ewjkdvxfcyfkc th.tinytable_css_i34x4pc43gyz0iak3bl2 { text-align: center }
+    #tinytable_2h9thf3ewjkdvxfcyfkc td.tinytable_css_1qzwojmmpj6umpw4xjf3, #tinytable_2h9thf3ewjkdvxfcyfkc th.tinytable_css_1qzwojmmpj6umpw4xjf3 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_2h9thf3ewjkdvxfcyfkc td.tinytable_css_znkd0aht9te08qfrh3dm, #tinytable_2h9thf3ewjkdvxfcyfkc th.tinytable_css_znkd0aht9te08qfrh3dm {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_2h9thf3ewjkdvxfcyfkc td.tinytable_css_i6hd66y5ex69i4aropth, #tinytable_2h9thf3ewjkdvxfcyfkc th.tinytable_css_i6hd66y5ex69i4aropth {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_2h9thf3ewjkdvxfcyfkc td.tinytable_css_uzpmisz771cd1qftiyyp, #tinytable_2h9thf3ewjkdvxfcyfkc th.tinytable_css_uzpmisz771cd1qftiyyp { text-align: left }
+    #tinytable_2h9thf3ewjkdvxfcyfkc td.tinytable_css_zw677mb1fqz6iv5a9yf6, #tinytable_2h9thf3ewjkdvxfcyfkc th.tinytable_css_zw677mb1fqz6iv5a9yf6 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_2819x5wk35lvd4ydn8jb" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_2h9thf3ewjkdvxfcyfkc" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -2478,35 +2955,71 @@ Table&nbsp;5: Régressions logistiques simples: opposition à l’augmentation d
 </div>
 </div>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-check1</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Vérification des hypothèses du modèle logit: augmentation de la franchise minimale"</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(performance)</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplotify)</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>checkmodel1 <span class="ot">&lt;-</span> </span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="fu">check_model</span>(model1_step2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Cannot simulate residuals for models of class `glm`. Please try
+  `check_model(..., residual_type = "normal")` instead.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>checkmodel1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/unnamed-chunk-4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>plot <span class="ot">=</span> <span class="fu">plot</span>(checkmodel1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Ignoring unknown labels:
+• size : ""
+• alpha : ""</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/unnamed-chunk-4-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="index_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid figure-img" width="672"></a></p>
+<p><img src="index_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ggsave("diagnosticfranchise.png", plot, width = 15, height = 10)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-check2</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Vérification des hypothèse du modèle logit: initiative pour l'allègement des primes"</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>checkmodel2 <span class="ot">&lt;-</span> </span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="fu">check_model</span>(best_model_glm2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Cannot simulate residuals for models of class `glm`. Please try
+  `check_model(..., residual_type = "normal")` instead.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>plot <span class="ot">=</span> <span class="fu">plot</span>(checkmodel2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Ignoring unknown labels:
+• size : ""
+• alpha : ""</code></pre>
+</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/unnamed-chunk-5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ggsave("diagnosticprimes.png", plot, width = 15, height = 10)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+
+
 </section>
 </section>
 
-</main>
-<!-- /main column -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -2908,38 +3421,6 @@ Table&nbsp;5: Régressions logistiques simples: opposition à l’augmentation d
   });
   </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script>
 
 
 

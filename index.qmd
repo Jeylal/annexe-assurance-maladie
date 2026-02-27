@@ -1,21 +1,11 @@
 ---
 title: "L'assurance-maladie obligatoire suisse dans l'impasse. Une analyse du compromis socio-politique derrière la Loi fédérale sur l’assurance-maladie (LAMal)"
-affiliations:
-  - id: unige
-    name: "Université de Genève"
-author:
-  - name: "Celâl Güney"
-    orcid: "0009-0008-2601-030X"
-    corresponding: true
-    email: "celal.gueney@unige.ch"
-    affiliations: [unige]
-    roles: ["Doctorant"]
-  - name: "Gaia Valenti"
-    affiliations: [unige]
-    roles: ["Doctorante"]
-date: last-modified
-bibliography: references.bib
-number-sections: true
+author: "Celâl Güney"
+format:
+  html:
+    theme: flatly
+    toc: true
+  pdf: default
 ---
 
 # Annexe
