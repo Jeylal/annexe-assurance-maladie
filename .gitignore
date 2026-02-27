@@ -1,49 +1,4 @@
-########################################
-# FICHIERS LOURDS / SPÉCIFIQUES PROJET
-########################################
 
-# ZIP volumineux problématique
-index-meca.zip
-
-# Éviter les ZIP dans le dépôt (facultatif)
-*.zip
-
-
-########################################
-# QUARTO / RENDER
-########################################
-
-# Dossiers générés par Quarto
-/_site/
-*/_site/
-.quarto/
-
-# Fichiers générés après rendu
-*.html
-*.pdf
-*.docx
-*.epub
-
-# Cache possible selon moteurs
-*.knit.md
-*.utf8.md
-
-
-########################################
-# LATEX / PDF BUILD ARTIFACTS
-########################################
-
-*.aux
-*.bbl
-*.blg
-*.brf
-*.idx
-*.ilg
-*.ind
-*.log
-*.toc
-*.out
-*.fls
 
 /.quarto/
 **/*.quarto_ipynb
