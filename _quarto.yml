@@ -14,5 +14,6 @@ format:
   jats: default
   agu-pdf: default
 
-
+exclude:
+  - index-meca.zip
 
