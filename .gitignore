@@ -44,3 +44,6 @@ index-meca.zip
 *.toc
 *.out
 *.fls
+
+/.quarto/
+**/*.quarto_ipynb
