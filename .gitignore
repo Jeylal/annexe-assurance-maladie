@@ -1,15 +1,46 @@
-.ipynb_checkpoints
-*/.ipynb_checkpoints/*
+########################################
+# FICHIERS LOURDS / SPÉCIFIQUES PROJET
+########################################
 
-/.quarto/
-/_manuscript
+# ZIP volumineux problématique
+index-meca.zip
 
-/agujournal2019.cls
-/trackchanges.sty
-.Rproj.user
-.Rhistory
-.Rdata
-.httr-oauth
-.DS_Store
+# Éviter les ZIP dans le dépôt (facultatif)
+*.zip
 
-**/*.quarto_ipynb
+
+########################################
+# QUARTO / RENDER
+########################################
+
+# Dossiers générés par Quarto
+/_site/
+*/_site/
+.quarto/
+
+# Fichiers générés après rendu
+*.html
+*.pdf
+*.docx
+*.epub
+
+# Cache possible selon moteurs
+*.knit.md
+*.utf8.md
+
+
+########################################
+# LATEX / PDF BUILD ARTIFACTS
+########################################
+
+*.aux
+*.bbl
+*.blg
+*.brf
+*.idx
+*.ilg
+*.ind
+*.log
+*.toc
+*.out
+*.fls
