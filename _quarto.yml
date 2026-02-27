@@ -9,7 +9,7 @@ execute:
 format:
   html:
     manuscript:
-      meca: false
+        article: index.qmd
   docx: default
   jats: default
   agu-pdf: default
